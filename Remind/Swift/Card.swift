@@ -25,7 +25,8 @@ class Card: UIView {
     }
     
     func setupView() {
-        self.layer.roundCorners(radius: 3)
+        self.layer.roundCorners(radius: 10)
+        self.layer.borderWidth = 2
     }
 }
 

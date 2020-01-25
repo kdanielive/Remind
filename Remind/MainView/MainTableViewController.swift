@@ -24,21 +24,31 @@ class MainTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 5
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "maincell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "maincell", for: indexPath) as! MainTableViewCell
+        
+        let contentView = Card()
+        let padding = CGFloat(10)
+        let viewWidth = cell.contentView.frame.width - padding*2
+        let viewHeight = cell.contentView.frame.height - padding*2
+        contentView.frame = CGRect(x: padding, y: padding, width: viewWidth, height: viewHeight)
+        cell.addSubview(contentView)
 
         // Configure the cell...
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 300
     }
     
 
