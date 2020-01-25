@@ -9,10 +9,13 @@
 import Foundation
 import UIKit
 
-class Card: UIView {
+class MainCard: UIView {
     
+    let iconImageView = UIImageView()
+    let titleView = UIView()
     let titleLabel = UILabel()
     let infoView = UIView()
+    let nameLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,10 +37,21 @@ class Card: UIView {
         
         self.layer.borderWidth = 2
         
+        let titleViewWidth = self.frame.width
+        let titleViewHeight = CGFloat(60)
+        titleView.frame = CGRect(x: 0, y: 0, width: titleViewWidth, height: titleViewHeight)
+        titleView.roundCorners(corners: [UIRectCorner.topLeft,UIRectCorner.topRight], radius: 10)
+        
+        titleView.layer.borderWidth = 1
+        
         let padding = CGFloat(10)
-        let labelWidth = self.frame.width - padding*4
-        let labelHeight = CGFloat(60)
-        titleLabel.frame = CGRect(x: padding*2, y: 0, width: labelWidth, height: labelHeight)
+        let imageHeight = titleViewHeight - padding * 2
+        let imageWidth = imageHeight
+        iconImageView.frame = CGRect(x: padding, y: padding, width: imageWidth, height: imageHeight)
+        
+        let labelWidth = self.frame.width - padding*2 - imageWidth
+        let labelHeight = titleViewHeight
+        titleLabel.frame = CGRect(x: padding+imageWidth+padding, y: 0, width: labelWidth, height: labelHeight)
         titleLabel.font = UIFont.boldSystemFont(ofSize: 25)
         titleLabel.adjustsFontSizeToFitWidth = true
         
@@ -50,7 +64,10 @@ class Card: UIView {
         
         infoView.layer.borderWidth = 1
         
-        self.addSubview(titleLabel)
+        
+        self.addSubview(titleView)
+        titleView.addSubview(iconImageView)
+        titleView.addSubview(titleLabel)
         self.addSubview(infoView)
     }
 }

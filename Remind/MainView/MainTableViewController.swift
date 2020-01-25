@@ -35,13 +35,14 @@ class MainTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "maincell", for: indexPath) as! MainTableViewCell
         
-        let contentView = Card()
+        let contentView = MainCard()
         var padding = CGFloat(10)
         let viewWidth = cell.contentView.frame.width - padding*2
         let viewHeight = cell.contentView.frame.height - padding*2
         contentView.frame = CGRect(x: padding, y: padding, width: viewWidth, height: viewHeight)
         
         contentView.titleLabel.text = "Today"
+        contentView.iconImageView.image = UIImage(named: "icon2")
         
         cell.addSubview(contentView)
 
