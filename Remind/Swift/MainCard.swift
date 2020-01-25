@@ -41,9 +41,7 @@ class MainCard: UIView {
         let titleViewHeight = CGFloat(60)
         titleView.frame = CGRect(x: 0, y: 0, width: titleViewWidth, height: titleViewHeight)
         titleView.roundCorners(corners: [UIRectCorner.topLeft,UIRectCorner.topRight], radius: 10)
-        
-        titleView.layer.borderWidth = 1
-        
+                
         let padding = CGFloat(10)
         let imageHeight = titleViewHeight - padding * 2
         let imageWidth = imageHeight
@@ -55,15 +53,12 @@ class MainCard: UIView {
         titleLabel.font = UIFont.boldSystemFont(ofSize: 25)
         titleLabel.adjustsFontSizeToFitWidth = true
         
-        titleLabel.layer.borderWidth = 1
-        
         let infoWidth = self.frame.width
         let infoHeight = self.frame.height - labelHeight
         infoView.frame = CGRect(x: 0, y: labelHeight, width: infoWidth, height: infoHeight)
-        infoView.layer.roundCorners(radius: 10)
+        infoView.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 10)
         
         infoView.layer.borderWidth = 1
-        
         
         self.addSubview(titleView)
         titleView.addSubview(iconImageView)
