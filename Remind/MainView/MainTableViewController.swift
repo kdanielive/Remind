@@ -35,7 +35,7 @@ class MainTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "maincell", for: indexPath) as! MainTableViewCell
         
-        let contentView = MainCard()
+        let contentView = MainViewPersonCard()
         var padding = CGFloat(10)
         let viewWidth = cell.contentView.frame.width - padding*2
         let viewHeight = cell.contentView.frame.height - padding*2
@@ -46,6 +46,7 @@ class MainTableViewController: UITableViewController {
         contentView.nameLabel.text = "Grace Kim"
         contentView.eventLabel.text = "Birthday"
         contentView.dateLabel.text = "1998.12.29"
+        contentView.additionalLabel.text = "... and 3 more"
         
         cell.addSubview(contentView)
 
@@ -55,7 +56,7 @@ class MainTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 250
     }
     
 

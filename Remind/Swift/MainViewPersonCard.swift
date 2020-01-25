@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class MainCard: UIView {
+class MainViewPersonCard: UIView {
     
     let titleView = UIView()
     let iconImageView = UIImageView()
@@ -19,6 +19,7 @@ class MainCard: UIView {
     let nameLabel = UILabel()
     let eventLabel = UILabel()
     let dateLabel = UILabel()
+    let additionalLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -84,6 +85,11 @@ class MainCard: UIView {
         eventLabel.layer.borderWidth = 1
         dateLabel.layer.borderWidth = 1
         
+        let additionalWidth = infoWidth - padding*2
+        let additionalHeight = infoHeight - dateLabel.frame.maxY
+        additionalLabel.frame = CGRect(x: padding, y: infoHeight-additionalHeight, width: additionalWidth, height: additionalHeight)
+        additionalLabel.textAlignment = .left
+        
         self.addSubview(titleView)
         titleView.addSubview(iconImageView)
         titleView.addSubview(titleLabel)
@@ -91,6 +97,7 @@ class MainCard: UIView {
         infoView.addSubview(nameLabel)
         infoView.addSubview(eventLabel)
         infoView.addSubview(dateLabel)
+        infoView.addSubview(additionalLabel)
     }
 }
 
