@@ -43,6 +43,9 @@ class MainTableViewController: UITableViewController {
         
         contentView.titleLabel.text = "Today"
         contentView.iconImageView.image = UIImage(named: "icon2")
+        contentView.nameLabel.text = "Grace Kim"
+        contentView.eventLabel.text = "Birthday"
+        contentView.dateLabel.text = "1998.12.29"
         
         cell.addSubview(contentView)
 

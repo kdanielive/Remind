@@ -11,11 +11,14 @@ import UIKit
 
 class MainCard: UIView {
     
-    let iconImageView = UIImageView()
     let titleView = UIView()
+    let iconImageView = UIImageView()
     let titleLabel = UILabel()
+    
     let infoView = UIView()
     let nameLabel = UILabel()
+    let eventLabel = UILabel()
+    let dateLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -60,10 +63,34 @@ class MainCard: UIView {
         
         infoView.layer.borderWidth = 1
         
+        let nameWidth = self.frame.width - padding*2
+        let nameHeight = CGFloat(50)
+        nameLabel.frame = CGRect(x: padding, y: padding, width: nameWidth, height: nameHeight)
+        nameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        nameLabel.adjustsFontSizeToFitWidth = true
+        
+        nameLabel.layer.borderWidth = 1
+        
+        let eventWidth = nameWidth/2
+        let eventHeight = nameHeight
+        eventLabel.frame = CGRect(x: padding, y: padding*2+nameHeight, width: eventWidth, height: eventHeight)
+        eventLabel.font = UIFont.systemFont(ofSize: 20)
+        
+        let dateWidth = eventWidth
+        let dateHeight = eventHeight
+        dateLabel.frame = CGRect(x: padding+eventWidth, y: padding*2+nameHeight, width: dateWidth, height: dateHeight)
+        dateLabel.font = UIFont.systemFont(ofSize: 20)
+        
+        eventLabel.layer.borderWidth = 1
+        dateLabel.layer.borderWidth = 1
+        
         self.addSubview(titleView)
         titleView.addSubview(iconImageView)
         titleView.addSubview(titleLabel)
         self.addSubview(infoView)
+        infoView.addSubview(nameLabel)
+        infoView.addSubview(eventLabel)
+        infoView.addSubview(dateLabel)
     }
 }
 
