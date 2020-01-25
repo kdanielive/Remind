@@ -36,10 +36,12 @@ class MainTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "maincell", for: indexPath) as! MainTableViewCell
         
         let contentView = Card()
-        let padding = CGFloat(10)
+        var padding = CGFloat(10)
         let viewWidth = cell.contentView.frame.width - padding*2
         let viewHeight = cell.contentView.frame.height - padding*2
         contentView.frame = CGRect(x: padding, y: padding, width: viewWidth, height: viewHeight)
+        
+        contentView.titleLabel.text = "Today"
         
         cell.addSubview(contentView)
 

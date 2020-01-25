@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 
 class Card: UIView {
+    
+    let titleLabel = UILabel()
+    let infoView = UIView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -27,16 +31,27 @@ class Card: UIView {
     func setupView() {
         // Setting up the basic setting of the content view
         self.layer.roundCorners(radius: 10)
+        
         self.layer.borderWidth = 2
         
-        let titleLabel = UILabel()
         let padding = CGFloat(10)
-        let labelWidth = self.frame.width - padding*2
-        let labelHeight = CGFloat(80)
-        titleLabel.frame = CGRect(x: padding, y: padding, width: labelWidth, height: labelHeight)
+        let labelWidth = self.frame.width - padding*4
+        let labelHeight = CGFloat(60)
+        titleLabel.frame = CGRect(x: padding*2, y: 0, width: labelWidth, height: labelHeight)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 25)
+        titleLabel.adjustsFontSizeToFitWidth = true
+        
         titleLabel.layer.borderWidth = 1
         
+        let infoWidth = self.frame.width
+        let infoHeight = self.frame.height - labelHeight
+        infoView.frame = CGRect(x: 0, y: labelHeight, width: infoWidth, height: infoHeight)
+        infoView.layer.roundCorners(radius: 10)
+        
+        infoView.layer.borderWidth = 1
+        
         self.addSubview(titleLabel)
+        self.addSubview(infoView)
     }
 }
 
