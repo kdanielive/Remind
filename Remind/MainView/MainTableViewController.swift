@@ -40,6 +40,8 @@ class MainTableViewController: UITableViewController {
         let viewWidth = cell.contentView.frame.width - padding*2
         let viewHeight = cell.contentView.frame.height - padding*2
         contentView.frame = CGRect(x: padding, y: padding, width: viewWidth, height: viewHeight)
+        
+        
         cell.addSubview(contentView)
 
         // Configure the cell...
@@ -48,7 +50,7 @@ class MainTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
+        return 200
     }
     
 
