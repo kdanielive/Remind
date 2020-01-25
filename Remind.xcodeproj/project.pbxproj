@@ -16,6 +16,9 @@
 		AB85A4AF23DCA93000BED3A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB85A4AD23DCA93000BED3A4 /* LaunchScreen.storyboard */; };
 		AB85A4BA23DCA93100BED3A4 /* RemindTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB85A4B923DCA93100BED3A4 /* RemindTests.swift */; };
 		AB85A4C523DCA93100BED3A4 /* RemindUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB85A4C423DCA93100BED3A4 /* RemindUITests.swift */; };
+		AB85A4D423DCB39900BED3A4 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB85A4D323DCB39900BED3A4 /* MainTableViewController.swift */; };
+		AB85A4D623DCB3F000BED3A4 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB85A4D523DCB3F000BED3A4 /* MainTableViewCell.swift */; };
+		AB85A4D923DCB41300BED3A4 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB85A4D823DCB41300BED3A4 /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		AB85A4C023DCA93100BED3A4 /* RemindUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RemindUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB85A4C423DCA93100BED3A4 /* RemindUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindUITests.swift; sourceTree = "<group>"; };
 		AB85A4C623DCA93100BED3A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB85A4D323DCB39900BED3A4 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		AB85A4D523DCB3F000BED3A4 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		AB85A4D823DCB41300BED3A4 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,8 @@
 		AB85A49E23DCA92E00BED3A4 /* Remind */ = {
 			isa = PBXGroup;
 			children = (
+				AB85A4D723DCB40300BED3A4 /* Swift */,
+				AB85A4D223DCB38300BED3A4 /* MainView */,
 				AB85A49F23DCA92E00BED3A4 /* AppDelegate.swift */,
 				AB85A4A123DCA92E00BED3A4 /* SceneDelegate.swift */,
 				AB85A4A323DCA92E00BED3A4 /* ViewController.swift */,
@@ -129,6 +137,23 @@
 				AB85A4C623DCA93100BED3A4 /* Info.plist */,
 			);
 			path = RemindUITests;
+			sourceTree = "<group>";
+		};
+		AB85A4D223DCB38300BED3A4 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				AB85A4D323DCB39900BED3A4 /* MainTableViewController.swift */,
+				AB85A4D523DCB3F000BED3A4 /* MainTableViewCell.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		AB85A4D723DCB40300BED3A4 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				AB85A4D823DCB41300BED3A4 /* Card.swift */,
+			);
+			path = Swift;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,7 +289,10 @@
 			files = (
 				AB85A4A423DCA92E00BED3A4 /* ViewController.swift in Sources */,
 				AB85A4A023DCA92E00BED3A4 /* AppDelegate.swift in Sources */,
+				AB85A4D923DCB41300BED3A4 /* Card.swift in Sources */,
 				AB85A4AA23DCA92E00BED3A4 /* Remind.xcdatamodeld in Sources */,
+				AB85A4D423DCB39900BED3A4 /* MainTableViewController.swift in Sources */,
+				AB85A4D623DCB3F000BED3A4 /* MainTableViewCell.swift in Sources */,
 				AB85A4A223DCA92E00BED3A4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
