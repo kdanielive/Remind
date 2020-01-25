@@ -25,8 +25,18 @@ class Card: UIView {
     }
     
     func setupView() {
+        // Setting up the basic setting of the content view
         self.layer.roundCorners(radius: 10)
         self.layer.borderWidth = 2
+        
+        let titleLabel = UILabel()
+        let padding = CGFloat(10)
+        let labelWidth = self.frame.width - padding*2
+        let labelHeight = CGFloat(80)
+        titleLabel.frame = CGRect(x: padding, y: padding, width: labelWidth, height: labelHeight)
+        titleLabel.layer.borderWidth = 1
+        
+        self.addSubview(titleLabel)
     }
 }
 

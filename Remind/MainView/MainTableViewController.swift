@@ -41,7 +41,6 @@ class MainTableViewController: UITableViewController {
         let viewHeight = cell.contentView.frame.height - padding*2
         contentView.frame = CGRect(x: padding, y: padding, width: viewWidth, height: viewHeight)
         
-        
         cell.addSubview(contentView)
 
         // Configure the cell...
