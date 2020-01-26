@@ -33,6 +33,8 @@ class AddingViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func unwindToAddingView(segue:UIStoryboardSegue) { }
+    
     @IBAction func editingEnded(_ sender: UITextField) {
         self.name = sender.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         print(self.name)
@@ -61,6 +63,9 @@ class AddingViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if(identifier=="unwindToMain") {
+            return true
+        }
         
         if(self.name == "") {
             let alert = UIAlertController(title: "", message: "Fill in the blank fields first", preferredStyle: UIAlertController.Style.alert)

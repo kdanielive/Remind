@@ -84,7 +84,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="zgu-g2-2Eg" kind="show" id="PyG-Be-hXh"/>
+                                    <segue destination="zgu-g2-2Eg" kind="show" identifier="next" id="PyG-Be-hXh"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y2d-Vq-uL3" userLabel="contentView">
@@ -169,13 +169,21 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1oE-8q-dYK"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fi4-mO-6MU"/>
+                    <navigationItem key="navigationItem" id="fi4-mO-6MU">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="CBm-Oz-Mvs">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="Rge-7Y-aua" kind="unwind" identifier="unwindToMain" unwindAction="unwindToMainWithSegue:" id="s1J-vZ-URr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="nameTextField" destination="R4L-9Z-Kr9" id="yiw-ue-Hxg"/>
                         <outlet property="relationPickerView" destination="T5h-E1-Otu" id="14C-mV-QP2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gxG-6G-XN7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Rge-7Y-aua" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2513.04347826087" y="148.66071428571428"/>
         </scene>
@@ -215,7 +223,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="pCr-1d-dJt" kind="unwind" unwindAction="unwindToMainWithSegue:" id="Ad4-Sa-ou5"/>
+                                            <segue destination="pCr-1d-dJt" kind="unwind" identifier="unwindToMain" unwindAction="unwindToMainWithSegue:" id="Ad4-Sa-ou5"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -332,7 +340,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kFt-o4-Qpc"/>
                     </view>
-                    <navigationItem key="navigationItem" id="rTh-M1-itf"/>
+                    <navigationItem key="navigationItem" id="rTh-M1-itf">
+                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="QQ2-8A-HLE">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="pCr-1d-dJt" kind="unwind" identifier="unwindToAddingView" unwindAction="unwindToAddingViewWithSegue:" id="ADS-7w-czT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="annualButton" destination="dSW-8g-DEt" id="dVg-ZA-JIL"/>
                         <outlet property="datePicker" destination="EGm-AI-tjG" id="hqp-gY-bsW"/>

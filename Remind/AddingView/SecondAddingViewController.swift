@@ -50,7 +50,7 @@ class SecondAddingViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if(identifier=="reload") {
+        if(identifier=="reload" || identifier=="unwindToAddingView") {
             return true
         } else {
             if(eventName != nil && date != nil) {
