@@ -201,7 +201,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="zgu-g2-2Eg" kind="show" id="t0d-32-8Di"/>
+                                            <segue destination="zgu-g2-2Eg" kind="show" identifier="reload" id="t0d-32-8Di"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OkA-OG-ElT">
@@ -214,6 +214,9 @@
                                         <state key="normal" title="Done">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="pCr-1d-dJt" kind="unwind" unwindAction="unwindToMainWithSegue:" id="Ad4-Sa-ou5"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -337,6 +340,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4wA-w6-XWN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="pCr-1d-dJt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3263.7681159420295" y="148.66071428571428"/>
         </scene>

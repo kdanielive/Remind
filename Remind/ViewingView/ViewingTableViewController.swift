@@ -16,12 +16,12 @@ class ViewingTableViewController: UITableViewController {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {    return  }
         let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Person")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Event")
         do {
-            print("doing")
+            print("here")
             let result = try managedContext.fetch(fetchRequest)
             for data in result as! [NSManagedObject] {
-                print(data.value(forKey: "name") as! String)
+                print(data.value(forKey: "eventName") as! String)
             }
         } catch {
             print("Failed")

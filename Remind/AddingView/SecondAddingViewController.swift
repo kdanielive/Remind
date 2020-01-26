@@ -49,6 +49,22 @@ class SecondAddingViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if(identifier=="reload") {
+            return true
+        } else {
+            if(eventName != nil && date != nil) {
+                createData(date: self.date!, annual: self.annual, eventName: self.eventName!, personName: currentPersonName!)
+                return true
+            } else {
+                let alert = UIAlertController(title: "", message: "Fill in the blank fields first", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Redo", style: .default, handler: nil))
+                self.navigationController?.present(alert, animated: false, completion: nil)
+                return false
+            }
+        }
+    }
+    
     @IBAction func eventEditingEnded(_ sender: UITextField) {
         eventName = sender.text
     }
