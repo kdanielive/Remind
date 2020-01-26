@@ -34,7 +34,8 @@ class AddingViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     @IBAction func editingEnded(_ sender: UITextField) {
-        self.name = sender.text!
+        self.name = sender.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        print(self.name)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
