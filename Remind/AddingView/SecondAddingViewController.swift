@@ -50,30 +50,45 @@ class SecondAddingViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if(identifier=="reload" || identifier=="unwindToAddingView") {
+        if(identifier=="unwindToAddingView") {
             return true
-        } else {
+        } else if(identifier=="reload"){
             if(eventName != nil && date != nil) {
-                createData(date: self.date!, annual: self.annual, eventName: self.eventName!, personName: currentPersonName!)
-                createData(name: currentPersonName!, relation: currentRelation!)
+                saveEventTuple(date: date!, annual: annual, eventName: eventName!, personName: currentPersonName!)
                 return true
             } else {
-                let alert = UIAlertController(title: "", message: "Set both detail description and the date", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Redo", style: .default, handler: nil))
-                self.navigationController?.present(alert, animated: false, completion: nil)
+                showAlert()
+                return false
+            }
+        } else {
+            if(eventName != nil && date != nil) {
+                savePermanent()
+                return true
+            } else {
+                showAlert()
                 return false
             }
         }
     }
     
-    @IBAction func eventEditingEnded(_ sender: UITextField) {
-        eventName = sender.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+    func showAlert() {
+        let alert = UIAlertController(title: "", message: "Set both detail description and the date", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Redo", style: .default, handler: nil))
+        self.navigationController?.present(alert, animated: false, completion: nil)
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool
-    {
-        eventTextField.resignFirstResponder()
-        return true
+    func savePermanent() {
+        if(eventTupleList.count != 0) {
+            for event in eventTupleList {
+                createData(date: event.0, annual: event.1, eventName: event.2, personName: event.3)
+            }
+            eventTupleList.removeAll()
+        }
+        createData(name: currentPersonName!, relation: currentRelation!)
+    }
+    
+    func saveEventTuple(date:Date, annual:Bool, eventName:String, personName:String) {
+        eventTupleList.append((date, annual, eventName, personName))
     }
     
     func createData(date:Date, annual:Bool, eventName:String, personName:String) {
@@ -89,14 +104,21 @@ class SecondAddingViewController: UIViewController, UITextFieldDelegate {
     
     func createData(name:String, relation:String) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {    return  }
-        
         let managedContext = appDelegate.persistentContainer.viewContext
-        
         let personEntity = NSEntityDescription.entity(forEntityName: "Person", in: managedContext)!
-        
         let person = NSManagedObject(entity: personEntity, insertInto: managedContext)
         person.setValue(name, forKey: "name")
         person.setValue(relation, forKey: "relation")
+    }
+    
+    @IBAction func eventEditingEnded(_ sender: UITextField) {
+        eventName = sender.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        eventTextField.resignFirstResponder()
+        return true
     }
     
     /*

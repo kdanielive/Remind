@@ -11,3 +11,4 @@ import UIKit
 
 var currentPersonName: String?
 var currentRelation: String?
+var eventTupleList: [(Date,Bool,String,String)] = []
