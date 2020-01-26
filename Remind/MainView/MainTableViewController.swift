@@ -42,8 +42,13 @@ class MainTableViewController: UITableViewController {
             let viewHeight = cell.contentView.frame.height - padding*2
             contentView.frame = CGRect(x: padding, y: padding, width: viewWidth, height: viewHeight)
             
-            contentView.titleLabel.text = "Today"
-            contentView.iconImageView.image = UIImage(named: "icon2")
+            if(indexPath.row==0) {
+                contentView.titleLabel.text = "Today"
+                contentView.iconImageView.image = UIImage(named: "icon1")
+            } else {
+                contentView.titleLabel.text = "Upcoming"
+                contentView.iconImageView.image = UIImage(named: "icon2")
+            }
             contentView.nameLabel.text = "Grace Kim"
             contentView.eventLabel.text = "Birthday"
             contentView.dateLabel.text = "1998.12.29"
@@ -57,9 +62,15 @@ class MainTableViewController: UITableViewController {
             let viewHeight = cell.contentView.frame.height - padding*2
             contentView.frame = CGRect(x: padding, y: padding, width: viewWidth, height: viewHeight)
             
-            contentView.titleLabel.text = "Add"
-            contentView.iconImageView.image = UIImage(named: "icon3")
-            contentView.nameLabel.text = "Click to add Persons"
+            if(indexPath.row==0) {
+                contentView.titleLabel.text = "Add"
+                contentView.iconImageView.image = UIImage(named: "icon3")
+                contentView.nameLabel.text = "Click to add Persons"
+            } else {
+                contentView.titleLabel.text = "View"
+                contentView.iconImageView.image = UIImage(named: "icon4")
+                contentView.nameLabel.text = "Click to view Persons"
+            }
             
             cell.addSubview(contentView)
         }
