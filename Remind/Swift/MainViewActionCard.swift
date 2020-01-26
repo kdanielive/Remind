@@ -69,6 +69,13 @@ class MainViewActionCard: UIView {
         
         //nameLabel.layer.borderWidth = 1
         
+        //Setting Colors
+        titleView.backgroundColor = UIColor.black
+        infoView.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
+        
+        titleLabel.textColor = UIColor.white
+        nameLabel.textColor = UIColor.white
+        
         self.addSubview(titleView)
         titleView.addSubview(iconImageView)
         titleView.addSubview(titleLabel)

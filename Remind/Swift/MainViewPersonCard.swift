@@ -85,15 +85,21 @@ class MainViewPersonCard: UIView {
         //eventLabel.layer.borderWidth = 1
         //dateLabel.layer.borderWidth = 1
         
-        let additionalWidth = infoWidth - padding*2
+        let additionalWidth = infoWidth
         let additionalHeight = infoHeight - dateLabel.frame.maxY
-        additionalLabel.frame = CGRect(x: padding, y: infoHeight-additionalHeight, width: additionalWidth, height: additionalHeight)
+        additionalLabel.frame = CGRect(x: 0, y: infoHeight-additionalHeight, width: additionalWidth, height: additionalHeight)
         additionalLabel.textAlignment = .left
         
         //Setting Colors
-        titleView.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
-        infoView.backgroundColor = UIColor.init(red: 14/255, green: 77/255, blue: 146/255, alpha: 1)
-        additionalLabel.backgroundColor = UIColor.white
+        titleView.backgroundColor = UIColor.black
+        infoView.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
+        additionalLabel.backgroundColor = UIColor.init(red: 14/255, green: 77/255, blue: 146/255, alpha: 1)
+        
+        titleLabel.textColor = UIColor.white
+        nameLabel.textColor = UIColor.white
+        eventLabel.textColor = UIColor.white
+        dateLabel.textColor = UIColor.white
+        additionalLabel.textColor = UIColor.white
         
         self.addSubview(titleView)
         titleView.addSubview(iconImageView)
