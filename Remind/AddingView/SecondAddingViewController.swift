@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class SecondAddingViewController: UIViewController  {
+class SecondAddingViewController: UIViewController, UITextFieldDelegate {
     
     var annualButtonState = true
 
@@ -20,15 +20,18 @@ class SecondAddingViewController: UIViewController  {
     var annual = true
     var eventName: String?
     
+    @IBOutlet var eventTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.eventTextField.delegate = self
         
         annualButton.backgroundColor = UIColor.black
         annualButton.layer.borderColor = UIColor.black.cgColor
         annualButton.layer.borderWidth = 1
-        annualButton.layer.roundCorners(radius: 10)
+        annualButton.layer.roundCorners(radius: 5)
         
-
         // Do any additional setup after loading the view.
     }
     
@@ -44,6 +47,12 @@ class SecondAddingViewController: UIViewController  {
             annualButton.backgroundColor = UIColor.black
             annualButtonState = true
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        eventTextField.resignFirstResponder()
+        return true
     }
     
     func createData(date:Date, annual:Bool, eventName:String, personName:String) {

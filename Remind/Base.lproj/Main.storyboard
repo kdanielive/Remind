@@ -298,6 +298,7 @@
                     <connections>
                         <outlet property="annualButton" destination="dSW-8g-DEt" id="dVg-ZA-JIL"/>
                         <outlet property="datePicker" destination="EGm-AI-tjG" id="hqp-gY-bsW"/>
+                        <outlet property="eventTextField" destination="gKG-4I-0Mg" id="EVu-h1-L4u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4wA-w6-XWN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
