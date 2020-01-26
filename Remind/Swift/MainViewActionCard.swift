@@ -62,7 +62,7 @@ class MainViewActionCard: UIView {
         //infoView.layer.borderWidth = 1
         
         let nameWidth = self.frame.width - padding*2
-        let nameHeight = CGFloat(50)
+        let nameHeight = CGFloat(40)
         nameLabel.frame = CGRect(x: padding, y: padding, width: nameWidth, height: nameHeight)
         nameLabel.font = UIFont.boldSystemFont(ofSize: 20)
         nameLabel.adjustsFontSizeToFitWidth = true

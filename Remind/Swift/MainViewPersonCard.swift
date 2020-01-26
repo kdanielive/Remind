@@ -93,13 +93,12 @@ class MainViewPersonCard: UIView {
         //Setting Colors
         titleView.backgroundColor = UIColor.black
         infoView.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
-        additionalLabel.backgroundColor = UIColor.init(red: 14/255, green: 77/255, blue: 146/255, alpha: 1)
+        additionalLabel.backgroundColor = UIColor.white
         
         titleLabel.textColor = UIColor.white
         nameLabel.textColor = UIColor.white
         eventLabel.textColor = UIColor.white
         dateLabel.textColor = UIColor.white
-        additionalLabel.textColor = UIColor.white
         
         self.addSubview(titleView)
         titleView.addSubview(iconImageView)
