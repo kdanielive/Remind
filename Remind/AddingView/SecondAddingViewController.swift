@@ -49,6 +49,10 @@ class SecondAddingViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func eventEditingEnded(_ sender: UITextField) {
+        eventName = sender.text
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         eventTextField.resignFirstResponder()

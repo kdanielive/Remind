@@ -171,6 +171,9 @@
                                         <state key="normal" title="Add Another">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="zgu-g2-2Eg" kind="show" id="t0d-32-8Di"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OkA-OG-ElT">
                                         <rect key="frame" x="207" y="0.0" width="207" height="60"/>
@@ -212,6 +215,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="namePhonePad" returnKeyType="done" textContentType="name"/>
+                                                <connections>
+                                                    <action selector="eventEditingEnded:" destination="zgu-g2-2Eg" eventType="editingDidEnd" id="YMR-dQ-GGG"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gln-ad-r1V">
                                                 <rect key="frame" x="20" y="90" width="50" height="30"/>
