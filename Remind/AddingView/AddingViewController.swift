@@ -71,7 +71,6 @@ class AddingViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             createData(name: self.name, relation: self.relation)
             return true
         }
-        
     }
     
     func createData(name:String, relation:String) {
