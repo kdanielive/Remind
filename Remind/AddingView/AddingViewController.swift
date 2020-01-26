@@ -69,7 +69,8 @@ class AddingViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             return false
         } else {
             currentPersonName = self.name
-            createData(name: self.name, relation: self.relation)
+            currentRelation = self.relation
+            //createData(name: self.name, relation: self.relation)
             return true
         }
     }

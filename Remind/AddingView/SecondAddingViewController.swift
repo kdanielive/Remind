@@ -55,9 +55,10 @@ class SecondAddingViewController: UIViewController, UITextFieldDelegate {
         } else {
             if(eventName != nil && date != nil) {
                 createData(date: self.date!, annual: self.annual, eventName: self.eventName!, personName: currentPersonName!)
+                createData(name: currentPersonName!, relation: currentRelation!)
                 return true
             } else {
-                let alert = UIAlertController(title: "", message: "Fill in the blank fields first", preferredStyle: UIAlertController.Style.alert)
+                let alert = UIAlertController(title: "", message: "Set both detail description and the date", preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "Redo", style: .default, handler: nil))
                 self.navigationController?.present(alert, animated: false, completion: nil)
                 return false
@@ -84,6 +85,18 @@ class SecondAddingViewController: UIViewController, UITextFieldDelegate {
         event.setValue(annual, forKey: "annual")
         event.setValue(eventName, forKey: "eventName")
         event.setValue(personName, forKey: "personName")
+    }
+    
+    func createData(name:String, relation:String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {    return  }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let personEntity = NSEntityDescription.entity(forEntityName: "Person", in: managedContext)!
+        
+        let person = NSManagedObject(entity: personEntity, insertInto: managedContext)
+        person.setValue(name, forKey: "name")
+        person.setValue(relation, forKey: "relation")
     }
     
     /*
