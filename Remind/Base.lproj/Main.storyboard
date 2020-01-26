@@ -236,6 +236,9 @@
                                                     <constraint firstAttribute="height" constant="30" id="Aks-xN-4KK"/>
                                                     <constraint firstAttribute="width" constant="30" id="zNm-KQ-7Bp"/>
                                                 </constraints>
+                                                <connections>
+                                                    <action selector="annualEventButtonTouched:" destination="zgu-g2-2Eg" eventType="touchUpInside" id="ghu-hk-hOB"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Annual Event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D05-k2-BwA">
                                                 <rect key="frame" x="259" y="90" width="105" height="30"/>
@@ -289,6 +292,9 @@
                         <viewLayoutGuide key="safeArea" id="kFt-o4-Qpc"/>
                     </view>
                     <navigationItem key="navigationItem" id="rTh-M1-itf"/>
+                    <connections>
+                        <outlet property="annualButton" destination="dSW-8g-DEt" id="dVg-ZA-JIL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4wA-w6-XWN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
