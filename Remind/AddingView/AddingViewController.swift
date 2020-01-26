@@ -9,9 +9,10 @@
 import UIKit
 import CoreData
 
-class AddingViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
+class AddingViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
     @IBOutlet var relationPickerView: UIPickerView!
+    @IBOutlet var nameTextField: UITextField!
     
     let relationVariety = ["Family", "Close Friend", "Friend", "Acquaintance", "Work"]
     var name = ""
@@ -20,13 +21,26 @@ class AddingViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.nameTextField.delegate = self
         self.relationPickerView.delegate = self
         self.relationPickerView.dataSource = self
+        
         relationPickerView.layer.borderWidth = 0.5
         relationPickerView.layer.borderColor = UIColor.gray.cgColor
         relationPickerView.layer.roundCorners(radius: 5)
         relationPickerView.selectRow(2, inComponent: 0, animated: false)
+        
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func editingEnded(_ sender: UITextField) {
+        self.name = sender.text!
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        nameTextField.resignFirstResponder()
+        return true
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -46,7 +60,9 @@ class AddingViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if(self.name != "") {
+        
+        print(self.name)
+        if(self.name == "") {
             let alert = UIAlertController(title: "", message: "Fill in the blank fields first", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Redo", style: .default, handler: nil))
             self.navigationController?.present(alert, animated: false, completion: nil)
