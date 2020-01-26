@@ -24,31 +24,46 @@ class MainTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "maincell", for: indexPath) as! MainTableViewCell
         
-        let contentView = MainViewPersonCard()
-        var padding = CGFloat(10)
-        let viewWidth = cell.contentView.frame.width - padding*2
-        let viewHeight = cell.contentView.frame.height - padding*2
-        contentView.frame = CGRect(x: padding, y: padding, width: viewWidth, height: viewHeight)
+        if(indexPath.section==0) {
+            let contentView = MainViewPersonCard()
+            var padding = CGFloat(10)
+            let viewWidth = cell.contentView.frame.width - padding*2
+            let viewHeight = cell.contentView.frame.height - padding*2
+            contentView.frame = CGRect(x: padding, y: padding, width: viewWidth, height: viewHeight)
+            
+            contentView.titleLabel.text = "Today"
+            contentView.iconImageView.image = UIImage(named: "icon2")
+            contentView.nameLabel.text = "Grace Kim"
+            contentView.eventLabel.text = "Birthday"
+            contentView.dateLabel.text = "1998.12.29"
+            contentView.additionalLabel.text = "... and 3 more"
+            
+            cell.addSubview(contentView)
+        } else {
+            let contentView = MainViewActionCard()
+            var padding = CGFloat(10)
+            let viewWidth = cell.contentView.frame.width - padding*2
+            let viewHeight = cell.contentView.frame.height - padding*2
+            contentView.frame = CGRect(x: padding, y: padding, width: viewWidth, height: viewHeight)
+            
+            contentView.titleLabel.text = "Add"
+            contentView.iconImageView.image = UIImage(named: "icon3")
+            contentView.nameLabel.text = "Click to add Persons"
+            
+            cell.addSubview(contentView)
+        }
         
-        contentView.titleLabel.text = "Today"
-        contentView.iconImageView.image = UIImage(named: "icon2")
-        contentView.nameLabel.text = "Grace Kim"
-        contentView.eventLabel.text = "Birthday"
-        contentView.dateLabel.text = "1998.12.29"
-        contentView.additionalLabel.text = "... and 3 more"
-        
-        cell.addSubview(contentView)
 
         // Configure the cell...
 
@@ -56,7 +71,12 @@ class MainTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 250
+        if(indexPath.section==0) {
+            return 250
+        } else {
+            return 150
+        }
+        
     }
     
 
