@@ -76,10 +76,7 @@ class MainTableViewController: UITableViewController {
             
             cell.addSubview(contentView)
         }
-        
-
         // Configure the cell...
-
         return cell
     }
     
@@ -89,9 +86,20 @@ class MainTableViewController: UITableViewController {
         } else {
             return 140
         }
-        
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let section = indexPath.section
+        let row = indexPath.row
+        
+        if(section==1) {
+            if(row==0) {
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "addingviewnav") as! UINavigationController
+                self.present(nextViewController, animated:false, completion:nil)
+            }
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.

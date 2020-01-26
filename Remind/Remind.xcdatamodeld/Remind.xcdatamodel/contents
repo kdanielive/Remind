@@ -5,7 +5,12 @@
         <attribute name="eventName" optional="YES" attributeType="String"/>
         <attribute name="personName" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="Person" representedClassName="Person" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="relation" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="Event" positionX="-54" positionY="0" width="128" height="88"/>
+        <element name="Person" positionX="-36" positionY="45" width="128" height="73"/>
     </elements>
 </model>

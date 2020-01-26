@@ -20,6 +20,8 @@
 		AB85A4D623DCB3F000BED3A4 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB85A4D523DCB3F000BED3A4 /* MainTableViewCell.swift */; };
 		AB85A4D923DCB41300BED3A4 /* MainViewPersonCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB85A4D823DCB41300BED3A4 /* MainViewPersonCard.swift */; };
 		AB85A4DB23DD302000BED3A4 /* MainViewActionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB85A4DA23DD302000BED3A4 /* MainViewActionCard.swift */; };
+		AB85A4DE23DD56CE00BED3A4 /* AddingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB85A4DD23DD56CE00BED3A4 /* AddingViewController.swift */; };
+		AB85A4E023DD685700BED3A4 /* SecondAddingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB85A4DF23DD685700BED3A4 /* SecondAddingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		AB85A4D523DCB3F000BED3A4 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		AB85A4D823DCB41300BED3A4 /* MainViewPersonCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPersonCard.swift; sourceTree = "<group>"; };
 		AB85A4DA23DD302000BED3A4 /* MainViewActionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewActionCard.swift; sourceTree = "<group>"; };
+		AB85A4DD23DD56CE00BED3A4 /* AddingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingViewController.swift; sourceTree = "<group>"; };
+		AB85A4DF23DD685700BED3A4 /* SecondAddingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondAddingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				AB85A4D723DCB40300BED3A4 /* Swift */,
+				AB85A4DC23DD56B700BED3A4 /* AddingView */,
 				AB85A4D223DCB38300BED3A4 /* MainView */,
 				AB85A49F23DCA92E00BED3A4 /* AppDelegate.swift */,
 				AB85A4A123DCA92E00BED3A4 /* SceneDelegate.swift */,
@@ -157,6 +162,15 @@
 				AB85A4DA23DD302000BED3A4 /* MainViewActionCard.swift */,
 			);
 			path = Swift;
+			sourceTree = "<group>";
+		};
+		AB85A4DC23DD56B700BED3A4 /* AddingView */ = {
+			isa = PBXGroup;
+			children = (
+				AB85A4DD23DD56CE00BED3A4 /* AddingViewController.swift */,
+				AB85A4DF23DD685700BED3A4 /* SecondAddingViewController.swift */,
+			);
+			path = AddingView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,7 +306,9 @@
 			files = (
 				AB85A4A423DCA92E00BED3A4 /* ViewController.swift in Sources */,
 				AB85A4A023DCA92E00BED3A4 /* AppDelegate.swift in Sources */,
+				AB85A4DE23DD56CE00BED3A4 /* AddingViewController.swift in Sources */,
 				AB85A4D923DCB41300BED3A4 /* MainViewPersonCard.swift in Sources */,
+				AB85A4E023DD685700BED3A4 /* SecondAddingViewController.swift in Sources */,
 				AB85A4DB23DD302000BED3A4 /* MainViewActionCard.swift in Sources */,
 				AB85A4AA23DCA92E00BED3A4 /* Remind.xcdatamodeld in Sources */,
 				AB85A4D423DCB39900BED3A4 /* MainTableViewController.swift in Sources */,
