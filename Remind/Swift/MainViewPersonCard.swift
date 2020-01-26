@@ -62,7 +62,7 @@ class MainViewPersonCard: UIView {
         infoView.frame = CGRect(x: 0, y: labelHeight, width: infoWidth, height: infoHeight)
         infoView.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 10)
         
-        infoView.layer.borderWidth = 1
+        //infoView.layer.borderWidth = 1
         
         let nameWidth = self.frame.width - padding*2
         let nameHeight = CGFloat(50)
@@ -70,7 +70,7 @@ class MainViewPersonCard: UIView {
         nameLabel.font = UIFont.boldSystemFont(ofSize: 20)
         nameLabel.adjustsFontSizeToFitWidth = true
         
-        nameLabel.layer.borderWidth = 1
+        //nameLabel.layer.borderWidth = 1
         
         let eventWidth = nameWidth/2
         let eventHeight = nameHeight
@@ -82,13 +82,18 @@ class MainViewPersonCard: UIView {
         dateLabel.frame = CGRect(x: padding+eventWidth, y: padding*2+nameHeight, width: dateWidth, height: dateHeight)
         dateLabel.font = UIFont.systemFont(ofSize: 20)
         
-        eventLabel.layer.borderWidth = 1
-        dateLabel.layer.borderWidth = 1
+        //eventLabel.layer.borderWidth = 1
+        //dateLabel.layer.borderWidth = 1
         
         let additionalWidth = infoWidth - padding*2
         let additionalHeight = infoHeight - dateLabel.frame.maxY
         additionalLabel.frame = CGRect(x: padding, y: infoHeight-additionalHeight, width: additionalWidth, height: additionalHeight)
         additionalLabel.textAlignment = .left
+        
+        //Setting Colors
+        titleView.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
+        infoView.backgroundColor = UIColor.init(red: 14/255, green: 77/255, blue: 146/255, alpha: 1)
+        additionalLabel.backgroundColor = UIColor.white
         
         self.addSubview(titleView)
         titleView.addSubview(iconImageView)

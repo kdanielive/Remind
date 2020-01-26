@@ -59,7 +59,7 @@ class MainViewActionCard: UIView {
         infoView.frame = CGRect(x: 0, y: labelHeight, width: infoWidth, height: infoHeight)
         infoView.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 10)
         
-        infoView.layer.borderWidth = 1
+        //infoView.layer.borderWidth = 1
         
         let nameWidth = self.frame.width - padding*2
         let nameHeight = CGFloat(50)
@@ -67,7 +67,7 @@ class MainViewActionCard: UIView {
         nameLabel.font = UIFont.boldSystemFont(ofSize: 20)
         nameLabel.adjustsFontSizeToFitWidth = true
         
-        nameLabel.layer.borderWidth = 1
+        //nameLabel.layer.borderWidth = 1
         
         self.addSubview(titleView)
         titleView.addSubview(iconImageView)
