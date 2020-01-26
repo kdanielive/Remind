@@ -9,4 +9,4 @@
 import Foundation
 import UIKit
 
-var currentPerson: String?
+var currentPersonName: String?

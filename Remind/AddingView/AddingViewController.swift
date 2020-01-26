@@ -61,13 +61,13 @@ class AddingViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         
-        print(self.name)
         if(self.name == "") {
             let alert = UIAlertController(title: "", message: "Fill in the blank fields first", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Redo", style: .default, handler: nil))
             self.navigationController?.present(alert, animated: false, completion: nil)
             return false
         } else {
+            currentPersonName = self.name
             createData(name: self.name, relation: self.relation)
             return true
         }

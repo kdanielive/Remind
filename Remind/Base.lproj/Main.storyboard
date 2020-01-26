@@ -229,6 +229,9 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="180" id="xnV-9f-A4s"/>
                                                 </constraints>
+                                                <connections>
+                                                    <action selector="dateValueChanged:" destination="zgu-g2-2Eg" eventType="valueChanged" id="lRX-Vw-HHZ"/>
+                                                </connections>
                                             </datePicker>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSW-8g-DEt">
                                                 <rect key="frame" x="364" y="90" width="30" height="30"/>
@@ -294,6 +297,7 @@
                     <navigationItem key="navigationItem" id="rTh-M1-itf"/>
                     <connections>
                         <outlet property="annualButton" destination="dSW-8g-DEt" id="dVg-ZA-JIL"/>
+                        <outlet property="datePicker" destination="EGm-AI-tjG" id="hqp-gY-bsW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4wA-w6-XWN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

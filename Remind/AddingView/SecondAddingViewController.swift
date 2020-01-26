@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import CoreData
 
-class SecondAddingViewController: UIViewController {
+class SecondAddingViewController: UIViewController  {
     
     var annualButtonState = true
 
     @IBOutlet var annualButton: UIButton!
+    @IBOutlet var datePicker: UIDatePicker!
+    
+    var date: Date?
+    var annual = true
+    var eventName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +27,13 @@ class SecondAddingViewController: UIViewController {
         annualButton.layer.borderColor = UIColor.black.cgColor
         annualButton.layer.borderWidth = 1
         annualButton.layer.roundCorners(radius: 10)
+        
 
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func dateValueChanged(_ sender: UIDatePicker) {
+        date = sender.date
     }
     
     @IBAction func annualEventButtonTouched(_ sender: UIButton) {
@@ -33,6 +44,17 @@ class SecondAddingViewController: UIViewController {
             annualButton.backgroundColor = UIColor.black
             annualButtonState = true
         }
+    }
+    
+    func createData(date:Date, annual:Bool, eventName:String, personName:String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {    return  }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let eventEntity = NSEntityDescription.entity(forEntityName: "Event", in: managedContext)!
+        let event = NSManagedObject(entity: eventEntity, insertInto: managedContext)
+        event.setValue(date, forKey: "date")
+        event.setValue(annual, forKey: "annual")
+        event.setValue(eventName, forKey: "eventName")
+        event.setValue(personName, forKey: "personName")
     }
     
     /*
