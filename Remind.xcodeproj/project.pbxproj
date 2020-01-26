@@ -23,6 +23,7 @@
 		AB85A4DE23DD56CE00BED3A4 /* AddingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB85A4DD23DD56CE00BED3A4 /* AddingViewController.swift */; };
 		AB85A4E023DD685700BED3A4 /* SecondAddingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB85A4DF23DD685700BED3A4 /* SecondAddingViewController.swift */; };
 		ABCE78D323DD734600FF9FA2 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCE78D223DD734600FF9FA2 /* Globals.swift */; };
+		ABCE78D623DD811100FF9FA2 /* ViewingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCE78D523DD811100FF9FA2 /* ViewingTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		AB85A4DD23DD56CE00BED3A4 /* AddingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingViewController.swift; sourceTree = "<group>"; };
 		AB85A4DF23DD685700BED3A4 /* SecondAddingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondAddingViewController.swift; sourceTree = "<group>"; };
 		ABCE78D223DD734600FF9FA2 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		ABCE78D523DD811100FF9FA2 /* ViewingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewingTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				AB85A4D723DCB40300BED3A4 /* Swift */,
+				ABCE78D423DD80B300FF9FA2 /* ViewingView */,
 				AB85A4DC23DD56B700BED3A4 /* AddingView */,
 				AB85A4D223DCB38300BED3A4 /* MainView */,
 				AB85A49F23DCA92E00BED3A4 /* AppDelegate.swift */,
@@ -174,6 +177,14 @@
 				AB85A4DF23DD685700BED3A4 /* SecondAddingViewController.swift */,
 			);
 			path = AddingView;
+			sourceTree = "<group>";
+		};
+		ABCE78D423DD80B300FF9FA2 /* ViewingView */ = {
+			isa = PBXGroup;
+			children = (
+				ABCE78D523DD811100FF9FA2 /* ViewingTableViewController.swift */,
+			);
+			path = ViewingView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +324,7 @@
 				AB85A4D923DCB41300BED3A4 /* MainViewPersonCard.swift in Sources */,
 				AB85A4E023DD685700BED3A4 /* SecondAddingViewController.swift in Sources */,
 				ABCE78D323DD734600FF9FA2 /* Globals.swift in Sources */,
+				ABCE78D623DD811100FF9FA2 /* ViewingTableViewController.swift in Sources */,
 				AB85A4DB23DD302000BED3A4 /* MainViewActionCard.swift in Sources */,
 				AB85A4AA23DCA92E00BED3A4 /* Remind.xcdatamodeld in Sources */,
 				AB85A4D423DCB39900BED3A4 /* MainTableViewController.swift in Sources */,

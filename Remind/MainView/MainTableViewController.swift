@@ -92,10 +92,14 @@ class MainTableViewController: UITableViewController {
         let section = indexPath.section
         let row = indexPath.row
         
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        
         if(section==1) {
             if(row==0) {
-                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                 let nextViewController = storyBoard.instantiateViewController(withIdentifier: "addingviewnav") as! UINavigationController
+                self.present(nextViewController, animated:false, completion:nil)
+            } else {
+                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "viewingviewnav") as! UINavigationController
                 self.present(nextViewController, animated:false, completion:nil)
             }
         }
