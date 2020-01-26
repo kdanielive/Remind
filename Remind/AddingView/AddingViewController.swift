@@ -42,7 +42,17 @@ class AddingViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        createData(name: self.name, relation: self.relation)
+        if(name != "") {
+            createData(name: self.name, relation: self.relation)
+        } else {
+            let alert = UIAlertController(title: "", message: "Fill in the blank fields first", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Redo", style: .default, handler: nil))
+            self.navigationController?.present(alert, animated: false, completion: nil)
+        }
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        return false
     }
     
     func createData(name:String, relation:String) {
