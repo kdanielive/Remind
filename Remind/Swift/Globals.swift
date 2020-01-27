@@ -12,3 +12,5 @@ import UIKit
 var currentPersonName: String?
 var currentRelation: String?
 var eventTupleList: [(Date,Bool,String,String)] = []
+var dataDict = [String:(String,String,String,Date,Bool)]()
+// name, relation, eventName, date, annual

@@ -29,7 +29,7 @@ class AddingViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         relationPickerView.layer.borderColor = UIColor.gray.cgColor
         relationPickerView.layer.roundCorners(radius: 5)
         relationPickerView.selectRow(2, inComponent: 0, animated: false)
-        
+        currentRelation = "Friend"
         // Do any additional setup after loading the view.
     }
     
@@ -37,7 +37,7 @@ class AddingViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     @IBAction func editingEnded(_ sender: UITextField) {
         self.name = sender.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        print(self.name)
+        currentPersonName = sender.text!.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
@@ -60,6 +60,7 @@ class AddingViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.relation = relationVariety[row]
+        currentRelation = relationVariety[row]
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -73,8 +74,6 @@ class AddingViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             self.navigationController?.present(alert, animated: false, completion: nil)
             return false
         } else {
-            currentPersonName = self.name
-            currentRelation = self.relation
             //createData(name: self.name, relation: self.relation)
             return true
         }

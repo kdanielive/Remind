@@ -12,10 +12,42 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {    return false   }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Event")
+
+        print("hello")
+        /*
+        //Deleting part
+        do {
+            let test = try managedContext.fetch(fetchRequest)
+            let objectToDelete = test[0] as! NSManagedObject
+            managedContext.delete(objectToDelete)
+            do {
+                try managedContext.save()
+            } catch {
+                print(error)
+            }
+        } catch {
+            print(error)
+        }
+        */
+
+        // Saving to local part
+        do {
+            let result = try managedContext.fetch(fetchRequest)
+            for data in result as! [NSManagedObject] {
+                dataDict[data.value(forKey: "personName") as! String] = ((data.value(forKey: "personName") as! String),(data.value(forKey: "personRelation") as! String),(data.value(forKey: "eventName") as! String),(data.value(forKey: "date") as! Date),(data.value(forKey: "annual") as! Bool))
+            }
+        } catch {
+            print("Failed")
+        }
+        for entry in dataDict.keys {
+            print(entry)
+            print(dataDict[entry])
+        }
         return true
     }
 

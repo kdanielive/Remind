@@ -63,6 +63,7 @@ class SecondAddingViewController: UIViewController, UITextFieldDelegate {
             }
         } else {
             if(eventName != nil && date != nil) {
+                saveEventTuple(date: date!, annual: annual, eventName: eventName!, personName: currentPersonName!)
                 savePermanent()
                 return true
             } else {
@@ -81,18 +82,18 @@ class SecondAddingViewController: UIViewController, UITextFieldDelegate {
     func savePermanent() {
         if(eventTupleList.count != 0) {
             for event in eventTupleList {
-                createData(date: event.0, annual: event.1, eventName: event.2, personName: event.3)
+                createData(date: event.0, annual: event.1, eventName: event.2, personName: event.3, personRelation: currentRelation!)
+                print(currentRelation!)
             }
             eventTupleList.removeAll()
         }
-        createData(name: currentPersonName!, relation: currentRelation!)
     }
     
     func saveEventTuple(date:Date, annual:Bool, eventName:String, personName:String) {
         eventTupleList.append((date, annual, eventName, personName))
     }
     
-    func createData(date:Date, annual:Bool, eventName:String, personName:String) {
+    func createData(date:Date, annual:Bool, eventName:String, personName:String, personRelation:String) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {    return  }
         let managedContext = appDelegate.persistentContainer.viewContext
         let eventEntity = NSEntityDescription.entity(forEntityName: "Event", in: managedContext)!
@@ -101,6 +102,14 @@ class SecondAddingViewController: UIViewController, UITextFieldDelegate {
         event.setValue(annual, forKey: "annual")
         event.setValue(eventName, forKey: "eventName")
         event.setValue(personName, forKey: "personName")
+        event.setValue(personRelation, forKey: "personRelation")
+        
+        do {
+            try managedContext.save()
+            print("saved")
+        } catch let error as NSError {
+            print(error)
+        }
     }
     
     func createData(name:String, relation:String) {
