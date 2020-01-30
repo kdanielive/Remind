@@ -62,3 +62,68 @@ extension String {
         return String(self[startIndex..<endIndex])
     }
 }
+
+extension Date {
+
+    /// Returns a Date with the specified amount of components added to the one it is called with
+    func add(years: Int = 0, months: Int = 0, days: Int = 0, hours: Int = 0, minutes: Int = 0, seconds: Int = 0) -> Date? {
+        let components = DateComponents(year: years, month: months, day: days, hour: hours, minute: minutes, second: seconds)
+        return Calendar.current.date(byAdding: components, to: self)
+    }
+
+    /// Returns a Date with the specified amount of components subtracted from the one it is called with
+    func subtract(years: Int = 0, months: Int = 0, days: Int = 0, hours: Int = 0, minutes: Int = 0, seconds: Int = 0) -> Date? {
+        return add(years: -years, months: -months, days: -days, hours: -hours, minutes: -minutes, seconds: -seconds)
+    }
+
+}
+
+
+
+extension CALayer {
+    func addShadow() {
+        self.shadowOffset = .zero
+        self.shadowOpacity = 1
+        self.shadowRadius = 12
+        self.shadowColor = UIColor.black.cgColor
+        self.masksToBounds = false
+        if cornerRadius != 0 {
+            addShadowWithRoundedCorners()
+        }
+    }
+    func roundCorners(radius: CGFloat) {
+        self.cornerRadius = radius
+        if shadowOpacity != 0 {
+            addShadowWithRoundedCorners()
+        }
+    }
+    private func addShadowWithRoundedCorners() {
+        if let contents = self.contents {
+            masksToBounds = false
+            sublayers?.filter{ $0.frame.equalTo(self.bounds) }
+                .forEach{ $0.roundCorners(radius: self.cornerRadius) }
+            self.contents = nil
+            if let sublayer = sublayers?.first,
+                sublayer.name == "hi" {
+                
+                sublayer.removeFromSuperlayer()
+            }
+            let contentLayer = CALayer()
+            contentLayer.name = "hi"
+            contentLayer.contents = contents
+            contentLayer.frame = bounds
+            contentLayer.cornerRadius = cornerRadius
+            contentLayer.masksToBounds = true
+            insertSublayer(contentLayer, at: 0)
+        }
+    }
+}
+
+extension UIView {
+    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
+    }
+}

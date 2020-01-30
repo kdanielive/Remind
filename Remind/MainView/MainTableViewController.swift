@@ -30,6 +30,12 @@ class MainTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        if(section==0) {
+            if(todayList.count==0) {
+                return 1
+            }
+            return todayList.count
+        }
         return 2
     }
     
@@ -38,23 +44,7 @@ class MainTableViewController: UITableViewController {
         //cell.backgroundColor = UIColor.darkGray
         
         if(indexPath.section==0) {
-            let contentView = MainViewPersonCard()
-            var padding = CGFloat(0)
-            let viewWidth = cell.contentView.frame.width - padding*2
-            let viewHeight = cell.contentView.frame.height - padding*2
-            contentView.frame = CGRect(x: padding, y: padding, width: viewWidth, height: viewHeight)
             
-            if(indexPath.row==0) {
-                contentView.titleLabel.text = "Today"
-            } else {
-                contentView.titleLabel.text = "Upcoming"
-            }
-            contentView.nameLabel.text = "John Doe"
-            contentView.eventLabel.text = "Birthday"
-            contentView.dateLabel.text = "1998.12.29"
-            contentView.additionalLabel.text = "... and 3 more"
-            
-            cell.addSubview(contentView)
         } else {
             let contentView = MainViewActionCard()
             var padding = CGFloat(0)
@@ -78,9 +68,20 @@ class MainTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = MainViewHeaderCard()
+        header.titleLabel.text = "Today"
+        header.backgroundColor = UIColor.white
+        return header
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(indexPath.section==0) {
-            return 230
+            return 100
         } else {
             return 140
         }
