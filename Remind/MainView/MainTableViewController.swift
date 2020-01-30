@@ -107,14 +107,29 @@ class MainTableViewController: UITableViewController {
         header.titleLabel.textColor = UIColor.white
         if(section==0) {
             header.titleLabel.text = "Today"
-        } else {
-            header.titleLabel.text = "List"
         }
         return header
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        if(section==0) {
+            return 50
+        }
+        return 0
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if(section==0) {
+            return 20
+        }
+        return 0
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footer = UIView()
+        footer.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
+        footer.addBorder(toSide: .Bottom, withColor: UIColor.white.cgColor, andThickness: 2)
+        return footer
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
