@@ -46,8 +46,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         for entry in dataDict.keys {
             print(entry)
-            print(dataDict[entry])
+            print(dataDict[entry]!)
         }
+        
+        for entry in dataDict.keys {
+            
+        }
+        
+        // Generating today list and upcoming list
+        
+        
         return true
     }
 

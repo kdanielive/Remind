@@ -46,12 +46,10 @@ class MainTableViewController: UITableViewController {
             
             if(indexPath.row==0) {
                 contentView.titleLabel.text = "Today"
-                contentView.iconImageView.image = UIImage(named: "icon1")
             } else {
                 contentView.titleLabel.text = "Upcoming"
-                contentView.iconImageView.image = UIImage(named: "icon2")
             }
-            contentView.nameLabel.text = "Grace Kim"
+            contentView.nameLabel.text = "John Doe"
             contentView.eventLabel.text = "Birthday"
             contentView.dateLabel.text = "1998.12.29"
             contentView.additionalLabel.text = "... and 3 more"
@@ -59,7 +57,7 @@ class MainTableViewController: UITableViewController {
             cell.addSubview(contentView)
         } else {
             let contentView = MainViewActionCard()
-            var padding = CGFloat(10)
+            var padding = CGFloat(0)
             let viewWidth = cell.contentView.frame.width - padding*2
             let viewHeight = cell.contentView.frame.height - padding*2
             contentView.frame = CGRect(x: padding, y: padding, width: viewWidth, height: viewHeight)

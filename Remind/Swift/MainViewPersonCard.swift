@@ -11,8 +11,6 @@ import UIKit
 
 class MainViewPersonCard: UIView {
     
-    let titleView = UIView()
-    let iconImageView = UIImageView()
     let titleLabel = UILabel()
     
     let infoView = UIView()
@@ -36,25 +34,14 @@ class MainViewPersonCard: UIView {
     }
     
     func setupView() {
-        // Setting up the basic setting of the content view
-        self.layer.roundCorners(radius: 10)
-        
-        self.layer.borderWidth = 2
-        
-        let titleViewWidth = self.frame.width
-        let titleViewHeight = CGFloat(50)
-        titleView.frame = CGRect(x: 0, y: 0, width: titleViewWidth, height: titleViewHeight)
-        titleView.roundCorners(corners: [UIRectCorner.topLeft,UIRectCorner.topRight], radius: 10)
-                
+        // Setting up the basic setting of the content view        
         let padding = CGFloat(10)
-        let imageHeight = titleViewHeight - padding * 2
-        let imageWidth = imageHeight
-        iconImageView.frame = CGRect(x: padding, y: padding, width: imageWidth, height: imageHeight)
         
         let labelWidth = CGFloat(0)
-        let labelHeight = titleViewHeight
-        titleLabel.frame = CGRect(x: padding+imageWidth+padding, y: padding, width: labelWidth, height: labelHeight)
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 25)
+        let labelHeight = CGFloat(50)
+        titleLabel.frame = CGRect(x: padding, y: padding, width: labelWidth, height: labelHeight)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 22)
+        titleLabel.addBorder(toSide: .Bottom, withColor: UIColor.red.cgColor, andThickness: 1)
         titleLabel.sizeToFit()
         titleLabel.adjustsFontSizeToFitWidth = true
         
@@ -86,24 +73,9 @@ class MainViewPersonCard: UIView {
         //eventLabel.layer.borderWidth = 1
         //dateLabel.layer.borderWidth = 1
         
-        let additionalWidth = infoWidth
-        let additionalHeight = infoHeight - dateLabel.frame.maxY
-        additionalLabel.frame = CGRect(x: 0, y: infoHeight-additionalHeight, width: additionalWidth, height: additionalHeight)
-        additionalLabel.textAlignment = .left
-        
         //Setting Colors
-        titleView.backgroundColor = UIColor.black
-        infoView.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
-        additionalLabel.backgroundColor = UIColor.white
         
-        titleLabel.textColor = UIColor.white
-        nameLabel.textColor = UIColor.white
-        eventLabel.textColor = UIColor.white
-        dateLabel.textColor = UIColor.white
-        
-        self.addSubview(titleView)
-        titleView.addSubview(iconImageView)
-        titleView.addSubview(titleLabel)
+        self.addSubview(titleLabel)
         self.addSubview(infoView)
         infoView.addSubview(nameLabel)
         infoView.addSubview(eventLabel)
