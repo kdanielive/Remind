@@ -44,7 +44,7 @@ class MainTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "maincell", for: indexPath) as! MainTableViewCell
         //cell.backgroundColor = UIColor.darkGray
         cell.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
-        
+
         if(indexPath.section==0) {
             if(todayList.count == 0) {
                 let noneLabel = UILabel()
@@ -74,6 +74,9 @@ class MainTableViewController: UITableViewController {
                 eventLabel.font = UIFont.systemFont(ofSize: 12)
                 eventLabel.sizeToFit()
                 cell.addSubview(eventLabel)
+                
+                cell.accessoryType = .disclosureIndicator
+                cell.accessoryView?.tintColor = UIColor.white
             }
         } else {
             let contentView = MainViewActionCard()
@@ -119,7 +122,7 @@ class MainTableViewController: UITableViewController {
             if(todayList.count == 0) {
                 return 30
             } else {
-                return CGFloat(60*todayList.count)
+                return 60
             }
         } else {
             return 140
