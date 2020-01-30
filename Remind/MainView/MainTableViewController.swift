@@ -77,7 +77,11 @@ class MainTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "maincell", for: indexPath) as! MainTableViewCell
         //cell.backgroundColor = UIColor.darkGray
-        cell.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
+        if(indexPath.row % 2 == 0) {
+            cell.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
+        } else {
+            cell.backgroundColor = UIColor.init(red: 30/255, green: 59/255, blue: 92/255, alpha: 1)
+        }
 
         if(indexPath.section==0) {
             if(todayList.count == 0) {
