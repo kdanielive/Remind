@@ -103,6 +103,7 @@ class MainTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = MainViewHeaderCard()
         header.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
+        //header.backgroundColor = UIColor.black
         header.titleLabel.textColor = UIColor.white
         if(section==0) {
             header.titleLabel.text = "Today"
