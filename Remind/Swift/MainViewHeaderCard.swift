@@ -30,11 +30,11 @@ class MainViewHeaderCard: UIView {
     func setupView() {
         // Setting up the basic setting of the content view
         
-        let padding = CGFloat(5)
+        let padding = CGFloat(10)
         let labelWidth = CGFloat(0)
-        let labelHeight = CGFloat(40)
+        let labelHeight = CGFloat(38)
         titleLabel.frame = CGRect(x: padding, y: padding, width: labelWidth, height: labelHeight)
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 25)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
         titleLabel.sizeToFit()
         titleLabel.addBorder(toSide: .Bottom, withColor: UIColor.white.cgColor, andThickness: 1)
         titleLabel.adjustsFontSizeToFitWidth = true
