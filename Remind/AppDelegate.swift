@@ -39,11 +39,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         do {
             let result = try managedContext.fetch(fetchRequest)
             for data in result as! [NSManagedObject] {
+                let tupl = ((data.value(forKey: "personName") as! String),(data.value(forKey: "personRelation") as! String),(data.value(forKey: "eventName") as! String),(data.value(forKey: "date") as! Date),(data.value(forKey: "annual") as! Bool))
                 if(dataDict.keys.contains(data.value(forKey: "personName") as! String)) {
-                    dataDict[data.value(forKey: "personName") as! String]?.append(((data.value(forKey: "personName") as! String),(data.value(forKey: "personRelation") as! String),(data.value(forKey: "eventName") as! String),(data.value(forKey: "date") as! Date),(data.value(forKey: "annual") as! Bool)))
+                    dataDict[data.value(forKey: "personName") as! String]?.append(tupl)
                 } else {
-                    dataDict[data.value(forKey: "personName") as! String] = [((data.value(forKey: "personName") as! String),(data.value(forKey: "personRelation") as! String),(data.value(forKey: "eventName") as! String),(data.value(forKey: "date") as! Date),(data.value(forKey: "annual") as! Bool))]
+                    dataDict[data.value(forKey: "personName") as! String] = [tupl]
                 }
+                totalList.append(tupl)
             }
         } catch {
             print("Failed")
