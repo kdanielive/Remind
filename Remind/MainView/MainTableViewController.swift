@@ -67,7 +67,6 @@ class MainTableViewController: UITableViewController {
                 
                 let nameLabelHeight = nameLabel.frame.height
                 let nameLabelWidth = nameLabel.frame.width
-
                 
             }
         } else {
