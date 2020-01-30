@@ -36,8 +36,8 @@ class AddingViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBAction func unwindToAddingView(segue:UIStoryboardSegue) { }
     
     @IBAction func editingEnded(_ sender: UITextField) {
-        self.name = sender.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        currentPersonName = sender.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        self.name = sender.text!.trimmingCharacters(in: .whitespacesAndNewlines).capitalized
+        currentPersonName = sender.text!.trimmingCharacters(in: .whitespacesAndNewlines).capitalized
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
