@@ -110,14 +110,17 @@ class MainTableViewController: UITableViewController {
             return header
         } else {
             let header = UIView()
+            header.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
+
             let monthLabel = UILabel()
-            let padding = CGFloat(10)
-            monthLabel.frame = CGRect(x: padding, y: padding, width: 0, height: 0)
+            monthLabel.frame = CGRect(x: 5, y: 0, width: 150, height: 20)
             monthLabel.font = UIFont.systemFont(ofSize: 20)
             monthLabel.sizeToFit()
-            monthLabel.text = String(section)
-            header.addSubview(monthLabel)
+            monthLabel.text = "January"
+            monthLabel.layer.borderWidth = 1
+            header.layer.borderWidth=1
             
+            header.addSubview(monthLabel)
             header.addSubview(line)
             return header
         }
@@ -127,7 +130,7 @@ class MainTableViewController: UITableViewController {
         if(section==0) {
             return 50
         }
-        return 50
+        return 40
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
