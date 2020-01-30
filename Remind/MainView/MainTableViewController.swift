@@ -50,7 +50,7 @@ class MainTableViewController: UITableViewController {
         if(indexPath.section==0) {
             if(todayList.count == 0) {
                 let noneLabel = UILabel()
-                noneLabel.frame = CGRect(x: 0, y: CGFloat(15), width: cell.frame.width, height: cell.frame.height)
+                noneLabel.frame = CGRect(x: 0, y: CGFloat(10), width: cell.frame.width, height: cell.frame.height)
                 noneLabel.font = UIFont.italicSystemFont(ofSize: 20)
                 noneLabel.textColor = UIColor.white
                 noneLabel.text = "    None"
@@ -81,23 +81,7 @@ class MainTableViewController: UITableViewController {
                 cell.accessoryView = moreImageView
             }
         } else {
-            let contentView = MainViewActionCard()
-            var padding = CGFloat(0)
-            let viewWidth = cell.contentView.frame.width - padding*2
-            let viewHeight = cell.contentView.frame.height - padding*2
-            contentView.frame = CGRect(x: padding, y: padding, width: viewWidth, height: viewHeight)
             
-            if(indexPath.row==0) {
-                contentView.titleLabel.text = "Add"
-                contentView.iconImageView.image = UIImage(named: "icon3")
-                contentView.nameLabel.text = "Click to add Persons"
-            } else {
-                contentView.titleLabel.text = "View"
-                contentView.iconImageView.image = UIImage(named: "icon4")
-                contentView.nameLabel.text = "Click to view Persons"
-            }
-            
-            cell.addSubview(contentView)
         }
         // Configure the cell...
         return cell
@@ -111,6 +95,12 @@ class MainTableViewController: UITableViewController {
         if(section==0) {
             header.titleLabel.text = "Today"
         }
+        
+        let line = UIView()
+        line.frame = CGRect(x: CGFloat(10), y: 0, width: self.tableView.frame.width-CGFloat(20), height: CGFloat(1))
+        line.backgroundColor = UIColor.white
+        header.addSubview(line)
+        
         return header
     }
     
@@ -150,6 +140,7 @@ class MainTableViewController: UITableViewController {
         }
     }
     
+    /*
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let section = indexPath.section
         let row = indexPath.row
@@ -166,6 +157,7 @@ class MainTableViewController: UITableViewController {
             }
         }
     }
+    */
     
     @IBAction func unwindToMain(segue:UIStoryboardSegue) { }
 
