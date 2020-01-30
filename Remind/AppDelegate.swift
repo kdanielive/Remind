@@ -61,6 +61,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 format.dateFormat = "MMdd"
                 let formattedToday = format.string(from: today)
                 let formattedTarget = format.string(from:target)
+                print(formattedToday)
+
                 if(formattedToday==formattedTarget) {
                     todayList.append(tupl.0)
                 }
@@ -73,6 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
+        print(todayList)
         
         // Generating today list and upcoming list
         
