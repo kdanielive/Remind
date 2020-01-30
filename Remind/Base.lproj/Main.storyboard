@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main Table View Controller-->
+        <!--Remind-->
         <scene sceneID="Jui-Gy-uG9">
             <objects>
                 <tableViewController id="VuO-5I-b0u" customClass="MainTableViewController" customModule="Remind" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,7 +30,11 @@
                             <outlet property="delegate" destination="VuO-5I-b0u" id="zLe-1U-UlK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="3UG-jt-kuH"/>
+                    <navigationItem key="navigationItem" title="Remind" id="3UG-jt-kuH">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="UtL-VA-1XV">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bRp-U3-hD0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -367,7 +371,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fqe-xd-xuk">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.0" green="0.19215686274509802" blue="0.32156862745098036" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="22"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
