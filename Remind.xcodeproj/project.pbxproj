@@ -19,7 +19,6 @@
 		AB85A4D423DCB39900BED3A4 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB85A4D323DCB39900BED3A4 /* MainTableViewController.swift */; };
 		AB85A4D623DCB3F000BED3A4 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB85A4D523DCB3F000BED3A4 /* MainTableViewCell.swift */; };
 		AB85A4D923DCB41300BED3A4 /* MainViewHeaderCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB85A4D823DCB41300BED3A4 /* MainViewHeaderCard.swift */; };
-		AB85A4DB23DD302000BED3A4 /* MainViewActionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB85A4DA23DD302000BED3A4 /* MainViewActionCard.swift */; };
 		AB85A4DE23DD56CE00BED3A4 /* AddingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB85A4DD23DD56CE00BED3A4 /* AddingViewController.swift */; };
 		AB85A4E023DD685700BED3A4 /* SecondAddingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB85A4DF23DD685700BED3A4 /* SecondAddingViewController.swift */; };
 		ABCE78D323DD734600FF9FA2 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCE78D223DD734600FF9FA2 /* Globals.swift */; };
@@ -62,7 +61,6 @@
 		AB85A4D323DCB39900BED3A4 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		AB85A4D523DCB3F000BED3A4 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		AB85A4D823DCB41300BED3A4 /* MainViewHeaderCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewHeaderCard.swift; sourceTree = "<group>"; };
-		AB85A4DA23DD302000BED3A4 /* MainViewActionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewActionCard.swift; sourceTree = "<group>"; };
 		AB85A4DD23DD56CE00BED3A4 /* AddingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingViewController.swift; sourceTree = "<group>"; };
 		AB85A4DF23DD685700BED3A4 /* SecondAddingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondAddingViewController.swift; sourceTree = "<group>"; };
 		ABCE78D223DD734600FF9FA2 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
@@ -164,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				AB85A4D823DCB41300BED3A4 /* MainViewHeaderCard.swift */,
-				AB85A4DA23DD302000BED3A4 /* MainViewActionCard.swift */,
 				ABCE78D223DD734600FF9FA2 /* Globals.swift */,
 			);
 			path = Swift;
@@ -325,7 +322,6 @@
 				AB85A4E023DD685700BED3A4 /* SecondAddingViewController.swift in Sources */,
 				ABCE78D323DD734600FF9FA2 /* Globals.swift in Sources */,
 				ABCE78D623DD811100FF9FA2 /* ViewingTableViewController.swift in Sources */,
-				AB85A4DB23DD302000BED3A4 /* MainViewActionCard.swift in Sources */,
 				AB85A4AA23DCA92E00BED3A4 /* Remind.xcdatamodeld in Sources */,
 				AB85A4D423DCB39900BED3A4 /* MainTableViewController.swift in Sources */,
 				AB85A4D623DCB3F000BED3A4 /* MainTableViewCell.swift in Sources */,

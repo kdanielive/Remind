@@ -94,36 +94,29 @@ class MainTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = MainViewHeaderCard()
+        header.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
+        header.titleLabel.textColor = UIColor.white
         
         let line = UIView()
         line.frame = CGRect(x: CGFloat(10), y: 0, width: self.tableView.frame.width-CGFloat(20), height: CGFloat(1))
         line.backgroundColor = UIColor.white
+        header.addSubview(line)
         
         if(section==0) {
-            let header = MainViewHeaderCard()
-            header.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
-            //header.backgroundColor = UIColor.black
-            header.titleLabel.textColor = UIColor.white
             header.titleLabel.text = "Today"
-            
-            header.addSubview(line)
-            return header
         } else {
-            let header = UIView()
-            header.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
-
             let monthLabel = UILabel()
-            monthLabel.frame = CGRect(x: 5, y: 0, width: 150, height: 20)
+            monthLabel.frame = CGRect(x: 5, y: 5, width: 100, height: 20)
             monthLabel.font = UIFont.systemFont(ofSize: 20)
-            monthLabel.sizeToFit()
             monthLabel.text = "January"
-            monthLabel.layer.borderWidth = 1
-            header.layer.borderWidth=1
+            monthLabel.textColor = UIColor.white
             
             header.addSubview(monthLabel)
-            header.addSubview(line)
-            return header
         }
+        
+        return header
+
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -135,20 +128,19 @@ class MainTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if(section==0) {
-            return 30
+            return 20
         }
         return 0
     }
     
+    
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footer = UIView()
         footer.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
-        let line = UIView()
-        line.frame = CGRect(x: 0, y: CGFloat(29), width: self.tableView.frame.width, height: CGFloat(1))
-        line.backgroundColor = UIColor.white
-        footer.addSubview(line)
+
         return footer
     }
+    
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(indexPath.section==0) {
