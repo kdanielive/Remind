@@ -42,9 +42,18 @@ class MainTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "maincell", for: indexPath) as! MainTableViewCell
         //cell.backgroundColor = UIColor.darkGray
+        cell.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
         
         if(indexPath.section==0) {
-            
+            if(todayList.count == 0) {
+                let noneLabel = UILabel()
+                noneLabel.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height)
+                noneLabel.font = UIFont.italicSystemFont(ofSize: 18)
+                noneLabel.text = "  None"
+                cell.addSubview(noneLabel)
+            } else {
+                
+            }
         } else {
             let contentView = MainViewActionCard()
             var padding = CGFloat(0)
@@ -70,8 +79,9 @@ class MainTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = MainViewHeaderCard()
+        header.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
         header.titleLabel.text = "Today"
-        header.backgroundColor = UIColor.white
+        header.titleLabel.textColor = UIColor.white
         return header
     }
     
@@ -81,7 +91,11 @@ class MainTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(indexPath.section==0) {
-            return 100
+            if(todayList.count == 0) {
+                return 30
+            } else {
+                return 100
+            }
         } else {
             return 140
         }

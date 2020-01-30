@@ -36,7 +36,7 @@ class MainViewHeaderCard: UIView {
         titleLabel.frame = CGRect(x: padding, y: padding, width: labelWidth, height: labelHeight)
         titleLabel.font = UIFont.boldSystemFont(ofSize: 25)
         titleLabel.sizeToFit()
-        titleLabel.addBorder(toSide: .Bottom, withColor: UIColor.black.cgColor, andThickness: 1)
+        titleLabel.addBorder(toSide: .Bottom, withColor: UIColor.white.cgColor, andThickness: 1)
         titleLabel.adjustsFontSizeToFitWidth = true
         
         self.addSubview(titleLabel)
