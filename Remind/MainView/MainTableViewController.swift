@@ -120,7 +120,7 @@ class MainTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if(section==0) {
-            return 20
+            return 30
         }
         return 0
     }
@@ -128,7 +128,10 @@ class MainTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footer = UIView()
         footer.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
-        footer.addBorder(toSide: .Bottom, withColor: UIColor.white.cgColor, andThickness: 2)
+        let line = UIView()
+        line.frame = CGRect(x: 0, y: CGFloat(29), width: self.tableView.frame.width, height: CGFloat(1))
+        line.backgroundColor = UIColor.white
+        footer.addSubview(line)
         return footer
     }
     
