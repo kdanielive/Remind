@@ -13,12 +13,13 @@ class MainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView.backgroundColor = UIColor.darkGray
+        self.tableView.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationController?.isNavigationBarHidden = true
     }
 
     // MARK: - Table view data source
@@ -80,8 +81,12 @@ class MainTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = MainViewHeaderCard()
         header.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
-        header.titleLabel.text = "Today"
         header.titleLabel.textColor = UIColor.white
+        if(section==0) {
+            header.titleLabel.text = "Today"
+        } else {
+            header.titleLabel.text = "List"
+        }
         return header
     }
     
