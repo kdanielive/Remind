@@ -126,6 +126,18 @@ class MainTableViewController: UITableViewController {
             monthLabel.textColor = UIColor.white
             
             cell.addSubview(monthLabel)
+            
+            let numberLabel = UILabel()
+            numberLabel.frame = CGRect(x: 60, y: 0, width: cell.frame.width-60, height: cell.frame.height)
+            numberLabel.textAlignment = .left
+            numberLabel.font = UIFont.systemFont(ofSize: 14)
+            numberLabel.textColor = UIColor.white
+            let tuplLst = findTupl(section: indexPath.section, row: indexPath.row)
+            if(tuplLst.count != 0) {
+                numberLabel.text = String(tuplLst.count)+" reminders."
+            }
+            
+            cell.addSubview(numberLabel)
         }
         // Configure the cell...
         return cell
