@@ -39,13 +39,13 @@ class MainTableViewController: UITableViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
         
         findTupl(section: 1, row: 29)
-    }
-    
-    override func viewWillLayoutSubviews() {
-        let indexPath:IndexPath = IndexPath(row: 30, section: 1)
-        self.tableView.scrollToRow(at: indexPath, at: .none, animated: false)
+        DispatchQueue.main.async {
+            let indexPath:IndexPath = IndexPath(row: 30, section: 1)
+            self.tableView.scrollToRow(at: indexPath, at: .none, animated: false)
+        }
     }
 
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
