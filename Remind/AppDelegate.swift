@@ -50,7 +50,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         for entry in dataDict.keys {
+            let format = DateFormatter()
+            let tupl = dataDict[entry]!
             
+            let today = Date().localDate()
+            let target = tupl.3
+            let annual = tupl.4
+            
+            if(annual) {
+                format.dateFormat = "MMdd"
+                let formattedToday = format.string(from: today)
+                let formattedTarget = format.string(from:target)
+                if(formattedToday==formattedTarget) {
+                    todayList.append(tupl.0)
+                }
+            } else {
+                format.dateFormat = "yyyyMMdd"
+                let formattedToday = format.string(from: today)
+                let formattedTarget = format.string(from:target)
+                if(formattedToday==formattedTarget) {
+                    todayList.append(tupl.0)
+                }
+            }
         }
         
         // Generating today list and upcoming list
