@@ -17,8 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {    return false   }
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Event")
-
-        print("hello")
         /*
         //Deleting part
         do {
@@ -53,6 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Failed")
         }
 
+        // Generating today list and upcoming list
         for entry in dataDict.keys {
             
             let f = ISO8601DateFormatter()
@@ -80,12 +79,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                 }
             }
-
         }
-        print(todayList)
-        
-        // Generating today list and upcoming list
-        
+
+        for tupl in totalList {
+            let date = tupl.3
+            
+        }
         
         return true
     }

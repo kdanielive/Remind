@@ -110,7 +110,7 @@ class MainTableViewController: UITableViewController {
             let monthLabel = UILabel()
             monthLabel.frame = CGRect(x: 0, y: 0, width: 50, height: cell.frame.height)
             monthLabel.textAlignment = .center
-            monthLabel.font = UIFont.systemFont(ofSize: 16)
+            monthLabel.font = UIFont.systemFont(ofSize: 18)
             monthLabel.text = String(indexPath.row+1)
             monthLabel.addBorder(toSide: .Right, withColor: UIColor.white.cgColor, andThickness: 1)
             monthLabel.textColor = UIColor.white
