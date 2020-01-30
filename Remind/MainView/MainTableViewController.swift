@@ -37,11 +37,13 @@ class MainTableViewController: UITableViewController {
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
+        
+        findTupl(section: 1, row: 29)
     }
     
     override func viewWillLayoutSubviews() {
-        let indexPath:IndexPath = IndexPath(row: 30, section: 8)
-        self.tableView.scrollToRow(at: indexPath, at: .none, animated: true)
+        let indexPath:IndexPath = IndexPath(row: 30, section: 1)
+        self.tableView.scrollToRow(at: indexPath, at: .none, animated: false)
     }
 
     // MARK: - Table view data source
@@ -180,6 +182,22 @@ class MainTableViewController: UITableViewController {
         } else {
             return 60
         }
+    }
+    
+    func findTupl(section: Int, row: Int) -> [(String,String,String,Date,Bool)] {
+        let month = monthDict[section]
+        let day = row+1
+        
+        var tuplLst: [(String,String,String,Date,Bool)] = []
+        for tempTupl in dateTuplList {
+            let tuplMonth = tempTupl.1
+            let tuplDay = tempTupl.2
+            if(month==tuplMonth && day==tuplDay) {
+                tuplLst.append(tempTupl.4)
+            }
+        }
+
+        return tuplLst
     }
     
     /*

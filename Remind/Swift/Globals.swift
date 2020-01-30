@@ -15,6 +15,7 @@ var eventTupleList: [(Date,Bool,String,String)] = []
 var dataDict = [String:[(String,String,String,Date,Bool)]]()
 var totalList : [(String,String,String,Date,Bool)] = []
 var todayList : [(String,String,String,Date,Bool)] = []
+var dateTuplList: [(Int,String,Int,String,(String,String,String,Date,Bool))] = []
 // var upcomingList: [(String,String,String,Date,Bool)] = []
 // name, relation, eventName, date, annual
 

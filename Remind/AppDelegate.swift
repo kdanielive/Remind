@@ -84,6 +84,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         for tupl in totalList {
             let date = tupl.3
             
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy"
+            let year = dateFormatter.string(from: date)
+            
+            dateFormatter.dateFormat = "LLLL"
+            let month = dateFormatter.string(from: date)
+            
+            dateFormatter.dateFormat = "EEEE"
+            let weekday = dateFormatter.string(from: date)
+            
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.day], from: date)
+            let day = components.day!
+            
+            let tempTupl = (Int(year)!,month,Int(day),weekday,tupl)
+            dateTuplList.append(tempTupl)
         }
         
         return true
