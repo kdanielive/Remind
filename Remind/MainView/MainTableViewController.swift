@@ -75,8 +75,8 @@ class MainTableViewController: UITableViewController {
                 eventLabel.sizeToFit()
                 cell.addSubview(eventLabel)
                 
-                cell.accessoryType = .disclosureIndicator
-                cell.accessoryView?.tintColor = UIColor.white
+                let moreImageView = UIImageView(image: UIImage(named: "icon5"))
+                cell.accessoryView = moreImageView
             }
         } else {
             let contentView = MainViewActionCard()
