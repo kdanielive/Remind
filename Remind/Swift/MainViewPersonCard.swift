@@ -42,7 +42,7 @@ class MainViewPersonCard: UIView {
         self.layer.borderWidth = 2
         
         let titleViewWidth = self.frame.width
-        let titleViewHeight = CGFloat(60)
+        let titleViewHeight = CGFloat(50)
         titleView.frame = CGRect(x: 0, y: 0, width: titleViewWidth, height: titleViewHeight)
         titleView.roundCorners(corners: [UIRectCorner.topLeft,UIRectCorner.topRight], radius: 10)
                 
@@ -51,10 +51,11 @@ class MainViewPersonCard: UIView {
         let imageWidth = imageHeight
         iconImageView.frame = CGRect(x: padding, y: padding, width: imageWidth, height: imageHeight)
         
-        let labelWidth = self.frame.width - padding*2 - imageWidth
+        let labelWidth = CGFloat(0)
         let labelHeight = titleViewHeight
-        titleLabel.frame = CGRect(x: padding+imageWidth+padding, y: 0, width: labelWidth, height: labelHeight)
+        titleLabel.frame = CGRect(x: padding+imageWidth+padding, y: padding, width: labelWidth, height: labelHeight)
         titleLabel.font = UIFont.boldSystemFont(ofSize: 25)
+        titleLabel.sizeToFit()
         titleLabel.adjustsFontSizeToFitWidth = true
         
         let infoWidth = self.frame.width
@@ -107,7 +108,7 @@ class MainViewPersonCard: UIView {
         infoView.addSubview(nameLabel)
         infoView.addSubview(eventLabel)
         infoView.addSubview(dateLabel)
-        infoView.addSubview(additionalLabel)
+        //infoView.addSubview(additionalLabel)
     }
 }
 
