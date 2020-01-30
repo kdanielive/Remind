@@ -17,29 +17,6 @@ var todayList : [String] = []
 var upcomingList: [String] = []
 // name, relation, eventName, date, annual
 
-extension UIButton {
-    func underlineText() {
-        guard let title = title(for: .normal) else { return }
-
-        let titleString = NSMutableAttributedString(string: title)
-        titleString.addAttribute(
-          .underlineStyle,
-          value: NSUnderlineStyle.single.rawValue,
-          range: NSRange(location: 0, length: title.count)
-        )
-        setAttributedTitle(titleString, for: .normal)
-  }
-    
-    func resetText() {
-        guard let title = title(for: .normal) else { return }
-
-        let titleString = NSMutableAttributedString(string: title)
-        titleString.removeAttribute(.underlineStyle, range: NSRange(location: 0, length: title.count))
-
-        setAttributedTitle(titleString, for: .normal)
-    }
-}
-
 extension UIView {
     
     // Example use: myView.addBorder(toSide: .Left, withColor: UIColor.redColor().CGColor, andThickness: 1.0)
@@ -64,12 +41,24 @@ extension UIView {
     }
 }
 
-extension Date {
-    func localDate() -> Date {
-        let nowUTC = Date()
-        let timeZoneOffset = Double(TimeZone.current.secondsFromGMT(for: nowUTC))
-        guard let localDate = Calendar.current.date(byAdding: .second, value: Int(timeZoneOffset), to: nowUTC) else {return Date()}
+extension String {
+    func index(from: Int) -> Index {
+        return self.index(startIndex, offsetBy: from)
+    }
 
-        return localDate
+    func substring(from: Int) -> String {
+        let fromIndex = index(from: from)
+        return String(self[fromIndex...])
+    }
+
+    func substring(to: Int) -> String {
+        let toIndex = index(from: to)
+        return String(self[..<toIndex])
+    }
+
+    func substring(with r: Range<Int>) -> String {
+        let startIndex = index(from: r.lowerBound)
+        let endIndex = index(from: r.upperBound)
+        return String(self[startIndex..<endIndex])
     }
 }
