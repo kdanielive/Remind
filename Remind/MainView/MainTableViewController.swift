@@ -38,13 +38,17 @@ class MainTableViewController: UITableViewController {
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
         
-        findTupl(section: 1, row: 29)
         DispatchQueue.main.async {
-            let indexPath:IndexPath = IndexPath(row: 30, section: 1)
+            let f = ISO8601DateFormatter()
+            f.formatOptions = [.withFullDate, .withDashSeparatorInDate]
+            f.timeZone = TimeZone.current
+            let month = Int(f.string(from: Date()).substring(from: 5).substring(to: 2))!
+            let day = Int(f.string(from: Date()).substring(from: 8).substring(to: 2))!
+            
+            let indexPath:IndexPath = IndexPath(row: day-1, section: month)
             self.tableView.scrollToRow(at: indexPath, at: .none, animated: false)
         }
     }
-
     
     // MARK: - Table view data source
 
