@@ -28,18 +28,24 @@ class MainTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 13
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        let specialMonths = [4,6,9,11]
         if(section==0) {
             if(todayList.count==0) {
                 return 1
             }
             return todayList.count
+        } else if(section==2) {
+            return 29
+        } else if(specialMonths.contains(section)){
+            return 30
+        } else {
+            return 31
         }
-        return 2
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -88,27 +94,40 @@ class MainTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = MainViewHeaderCard()
-        header.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
-        //header.backgroundColor = UIColor.black
-        header.titleLabel.textColor = UIColor.white
-        if(section==0) {
-            header.titleLabel.text = "Today"
-        }
         
         let line = UIView()
         line.frame = CGRect(x: CGFloat(10), y: 0, width: self.tableView.frame.width-CGFloat(20), height: CGFloat(1))
         line.backgroundColor = UIColor.white
-        header.addSubview(line)
         
-        return header
+        if(section==0) {
+            let header = MainViewHeaderCard()
+            header.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
+            //header.backgroundColor = UIColor.black
+            header.titleLabel.textColor = UIColor.white
+            header.titleLabel.text = "Today"
+            
+            header.addSubview(line)
+            return header
+        } else {
+            let header = UIView()
+            let monthLabel = UILabel()
+            let padding = CGFloat(10)
+            monthLabel.frame = CGRect(x: padding, y: padding, width: 0, height: 0)
+            monthLabel.font = UIFont.systemFont(ofSize: 20)
+            monthLabel.sizeToFit()
+            monthLabel.text = String(section)
+            header.addSubview(monthLabel)
+            
+            header.addSubview(line)
+            return header
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if(section==0) {
             return 50
         }
-        return 0
+        return 50
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
