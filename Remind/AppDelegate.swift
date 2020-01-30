@@ -48,11 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch {
             print("Failed")
         }
-        for entry in dataDict.keys {
-            print(entry)
-            print(dataDict[entry]!)
-        }
-        
+
         for entry in dataDict.keys {
             
             let f = ISO8601DateFormatter()
