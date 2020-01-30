@@ -20,6 +20,7 @@ class MainTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
     }
 
@@ -49,9 +50,10 @@ class MainTableViewController: UITableViewController {
         if(indexPath.section==0) {
             if(todayList.count == 0) {
                 let noneLabel = UILabel()
-                noneLabel.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height)
-                noneLabel.font = UIFont.italicSystemFont(ofSize: 18)
-                noneLabel.text = "  None"
+                noneLabel.frame = CGRect(x: 0, y: CGFloat(15), width: cell.frame.width, height: cell.frame.height)
+                noneLabel.font = UIFont.italicSystemFont(ofSize: 20)
+                noneLabel.textColor = UIColor.white
+                noneLabel.text = "    None"
                 cell.addSubview(noneLabel)
             } else {
                 let tupl = todayList[indexPath.row]
@@ -139,7 +141,7 @@ class MainTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(indexPath.section==0) {
             if(todayList.count == 0) {
-                return 30
+                return 50
             } else {
                 return 60
             }
