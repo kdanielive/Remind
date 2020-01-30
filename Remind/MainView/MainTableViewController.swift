@@ -55,9 +55,19 @@ class MainTableViewController: UITableViewController {
             } else {
                 let targetIdx = todayList[indexPath.row]
                 let tupl = dataDict[targetIdx]!
+                let padding = CGFloat(15)
                 
-                let padding = CGFloat(10)
+                let nameLabel = UILabel()
+                nameLabel.frame = CGRect(x: padding, y: padding, width: 0, height: 0)
+                nameLabel.text = tupl.0
+                nameLabel.textColor = UIColor.white
+                nameLabel.font = UIFont.systemFont(ofSize: 20)
+                nameLabel.sizeToFit()
+                cell.addSubview(nameLabel)
                 
+                let nameLabelHeight = nameLabel.frame.height
+                let nameLabelWidth = nameLabel.frame.width
+
                 
             }
         } else {
