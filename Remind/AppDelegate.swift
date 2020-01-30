@@ -39,7 +39,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         do {
             let result = try managedContext.fetch(fetchRequest)
             for data in result as! [NSManagedObject] {
-                dataDict[data.value(forKey: "personName") as! String] = ((data.value(forKey: "personName") as! String),(data.value(forKey: "personRelation") as! String),(data.value(forKey: "eventName") as! String),(data.value(forKey: "date") as! Date),(data.value(forKey: "annual") as! Bool))
+                if(dataDict.keys.contains(data.value(forKey: "personName") as! String)) {
+                    dataDict[data.value(forKey: "personName") as! String]?.append(((data.value(forKey: "personName") as! String),(data.value(forKey: "personRelation") as! String),(data.value(forKey: "eventName") as! String),(data.value(forKey: "date") as! Date),(data.value(forKey: "annual") as! Bool)))
+                } else {
+                    dataDict[data.value(forKey: "personName") as! String] = [((data.value(forKey: "personName") as! String),(data.value(forKey: "personRelation") as! String),(data.value(forKey: "eventName") as! String),(data.value(forKey: "date") as! Date),(data.value(forKey: "annual") as! Bool))]
+                }
             }
         } catch {
             print("Failed")
@@ -55,25 +59,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             f.formatOptions = [.withFullDate, .withDashSeparatorInDate]
             f.timeZone = TimeZone.current
             
-            let tupl = dataDict[entry]!
+            let tuplLst = dataDict[entry]!
             
-            let today = Date()
-            let target = tupl.3
-            let annual = tupl.4
-            
-            if(annual) {
-                let formattedToday = f.string(from: today).substring(from: 5)
-                let formattedTarget = f.string(from: target).substring(from: 5)
-                if(formattedToday==formattedTarget) {
-                    todayList.append(tupl.0)
-                }
-            } else {
-                let formattedToday = f.string(from: today)
-                let formattedTarget = f.string(from:target)
-                if(formattedToday==formattedTarget) {
-                    todayList.append(tupl.0)
+            for tupl in tuplLst {
+                let today = Date()
+                let target = tupl.3
+                let annual = tupl.4
+                
+                if(annual) {
+                    let formattedToday = f.string(from: today).substring(from: 5)
+                    let formattedTarget = f.string(from: target).substring(from: 5)
+                    if(formattedToday==formattedTarget) {
+                        todayList.append(tupl)
+                    }
+                } else {
+                    let formattedToday = f.string(from: today)
+                    let formattedTarget = f.string(from:target)
+                    if(formattedToday==formattedTarget) {
+                        todayList.append(tupl)
+                    }
                 }
             }
+
         }
         print(todayList)
         

@@ -53,8 +53,7 @@ class MainTableViewController: UITableViewController {
                 noneLabel.text = "  None"
                 cell.addSubview(noneLabel)
             } else {
-                let targetIdx = todayList[indexPath.row]
-                let tupl = dataDict[targetIdx]!
+                let tupl = todayList[indexPath.row]
                 let padding = CGFloat(15)
                 
                 let nameLabel = UILabel()
