@@ -67,7 +67,13 @@ class MainTableViewController: UITableViewController {
                 
                 let nameLabelHeight = nameLabel.frame.height
                 let nameLabelWidth = nameLabel.frame.width
-                
+                let eventLabel = UILabel()
+                eventLabel.frame = CGRect(x: padding, y: padding+nameLabelHeight, width: 0, height: 0)
+                eventLabel.text = tupl.2
+                eventLabel.textColor = UIColor.white
+                eventLabel.font = UIFont.systemFont(ofSize: 12)
+                eventLabel.sizeToFit()
+                cell.addSubview(eventLabel)
             }
         } else {
             let contentView = MainViewActionCard()
@@ -113,7 +119,7 @@ class MainTableViewController: UITableViewController {
             if(todayList.count == 0) {
                 return 30
             } else {
-                return 100
+                return CGFloat(60*todayList.count)
             }
         } else {
             return 140
