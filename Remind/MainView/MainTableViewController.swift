@@ -9,6 +9,21 @@
 import UIKit
 
 class MainTableViewController: UITableViewController {
+    
+    let monthDict = [
+        1:"January",
+        2:"February",
+        3:"March",
+        4:"April",
+        5:"May",
+        6:"June",
+        7:"July",
+        8:"August",
+        9:"September",
+        10:"October",
+        11:"Novermber",
+        12:"December"
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +37,11 @@ class MainTableViewController: UITableViewController {
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
+    }
+    
+    override func viewWillLayoutSubviews() {
+        let indexPath:IndexPath = IndexPath(row: 30, section: 8)
+        self.tableView.scrollToRow(at: indexPath, at: .none, animated: true)
     }
 
     // MARK: - Table view data source
@@ -90,7 +110,7 @@ class MainTableViewController: UITableViewController {
             let monthLabel = UILabel()
             monthLabel.frame = CGRect(x: 0, y: 0, width: 50, height: cell.frame.height)
             monthLabel.textAlignment = .center
-            monthLabel.font = UIFont.systemFont(ofSize: 24)
+            monthLabel.font = UIFont.systemFont(ofSize: 16)
             monthLabel.text = String(indexPath.row+1)
             monthLabel.addBorder(toSide: .Right, withColor: UIColor.white.cgColor, andThickness: 1)
             monthLabel.textColor = UIColor.white
@@ -117,7 +137,7 @@ class MainTableViewController: UITableViewController {
             let monthLabel = UILabel()
             monthLabel.frame = CGRect(x: 5, y: 5, width: 100, height: 20)
             monthLabel.font = UIFont.systemFont(ofSize: 20)
-            monthLabel.text = "January"
+            monthLabel.text = monthDict[section]
             monthLabel.textColor = UIColor.white
             
             header.addSubview(monthLabel)
@@ -158,7 +178,7 @@ class MainTableViewController: UITableViewController {
                 return 60
             }
         } else {
-            return 140
+            return 60
         }
     }
     
