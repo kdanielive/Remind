@@ -25,16 +25,18 @@ class MainTableViewController: UITableViewController {
         11:"Novermber",
         12:"December"
     ]
+    
+    let floaty = Floaty()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let floaty = Floaty()
-        floaty.addItem(title: "Hello, World!")
+        floaty.addItem("Go to Current Date", icon: UIImage(named: "icon6")!)
+        floaty.items[0].addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("goToCurrentDate")))
         floaty.sticky = true
-        self.tableView.addSubview(floaty)
-        self.tableView.bringSubviewToFront(floaty)
-
+        floaty.friendlyTap = true
+        self.navigationController?.view.addSubview(floaty)
+        
         self.tableView.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -45,6 +47,9 @@ class MainTableViewController: UITableViewController {
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
         
+    }
+    
+    @objc func goToCurrentDate() {
         DispatchQueue.main.async {
             let f = ISO8601DateFormatter()
             f.formatOptions = [.withFullDate, .withDashSeparatorInDate]
@@ -53,8 +58,20 @@ class MainTableViewController: UITableViewController {
             let day = Int(f.string(from: Date()).substring(from: 8).substring(to: 2))!
             
             let indexPath:IndexPath = IndexPath(row: day-1, section: month)
-            self.tableView.scrollToRow(at: indexPath, at: .none, animated: false)
+            self.tableView.scrollToRow(at: indexPath, at: .none, animated: true)
         }
+        floaty.items[0].addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("goToTodayReminders")))
+        floaty.items[0].title = "Go to Today's Reminders"
+        floaty.close()
+    }
+    
+    @objc func goToTodayReminders() {
+        DispatchQueue.main.async {
+            self.tableView.setContentOffset(.zero, animated: true)
+        }
+        floaty.items[0].addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("goToCurrentDate")))
+        floaty.items[0].title = "Go to Current Date"
+        floaty.close()
     }
     
     // MARK: - Table view data source
