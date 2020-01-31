@@ -51,6 +51,11 @@ class MainTableViewController: UITableViewController {
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
         
+        NotificationCenter.default.addObserver(self, selector: Selector("reload"), name: Notification.Name("reloadLocalDataCompleted"), object: nil)
+    }
+    
+    @objc func reload() {
+        self.tableView.reloadData()
     }
     
     @objc func goToCurrentDate() {
@@ -149,7 +154,7 @@ class MainTableViewController: UITableViewController {
                 eventLabel.sizeToFit()
                 cell.addSubview(eventLabel)
                 
-                let moreImageView = UIImageView(image: UIImage(named: "icon5"))
+                let moreImageView = UIImageView(image: UIImage(named: "icon9"))
                 cell.accessoryView = moreImageView
             }
         } else {

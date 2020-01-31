@@ -65,6 +65,7 @@ class SecondAddingViewController: UIViewController, UITextFieldDelegate {
             if(eventName != nil && date != nil) {
                 saveEventTuple(date: date!, annual: annual, eventName: eventName!, personName: currentPersonName!)
                 savePermanent()
+                reloadLocalData()
                 return true
             } else {
                 showAlert()
@@ -79,11 +80,91 @@ class SecondAddingViewController: UIViewController, UITextFieldDelegate {
         self.navigationController?.present(alert, animated: false, completion: nil)
     }
     
+    func reloadLocalData() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {    return    }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Event")
+        
+        totalList.removeAll()
+        dataDict.removeAll()
+        todayList.removeAll()
+        dateTuplList.removeAll()
+        
+        do {
+            let result = try managedContext.fetch(fetchRequest)
+            for data in result as! [NSManagedObject] {
+                let tupl = ((data.value(forKey: "personName") as! String),(data.value(forKey: "personRelation") as! String),(data.value(forKey: "eventName") as! String),(data.value(forKey: "date") as! Date),(data.value(forKey: "annual") as! Bool))
+                
+                if(dataDict.keys.contains(data.value(forKey: "personName") as! String)) {
+                    dataDict[data.value(forKey: "personName") as! String]?.append(tupl)
+                } else {
+                    dataDict[data.value(forKey: "personName") as! String] = [tupl]
+                }
+                
+                totalList.append(tupl)
+            }
+        } catch {
+            print("Failed")
+        }
+
+        // Generating today list and upcoming list
+        for entry in dataDict.keys {
+            
+            let f = ISO8601DateFormatter()
+            f.formatOptions = [.withFullDate, .withDashSeparatorInDate]
+            f.timeZone = TimeZone.current
+            
+            let tuplLst = dataDict[entry]!
+            
+            for tupl in tuplLst {
+                let today = Date()
+                let target = tupl.3
+                let annual = tupl.4
+                
+                if(annual) {
+                    let formattedToday = f.string(from: today).substring(from: 5)
+                    let formattedTarget = f.string(from: target).substring(from: 5)
+                    if(formattedToday==formattedTarget) {
+                        todayList.append(tupl)
+                    }
+                } else {
+                    let formattedToday = f.string(from: today)
+                    let formattedTarget = f.string(from:target)
+                    if(formattedToday==formattedTarget) {
+                        todayList.append(tupl)
+                    }
+                }
+            }
+        }
+
+        for tupl in totalList {
+            let date = tupl.3
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy"
+            let year = dateFormatter.string(from: date)
+            
+            dateFormatter.dateFormat = "LLLL"
+            let month = dateFormatter.string(from: date)
+            
+            dateFormatter.dateFormat = "EEEE"
+            let weekday = dateFormatter.string(from: date)
+            
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.day], from: date)
+            let day = components.day!
+            
+            let tempTupl = (Int(year)!,month,Int(day),weekday,tupl)
+            dateTuplList.append(tempTupl)
+        }
+        
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadLocalDataCompleted"), object: nil)
+    }
+    
     func savePermanent() {
         if(eventTupleList.count != 0) {
             for event in eventTupleList {
                 createData(date: event.0, annual: event.1, eventName: event.2, personName: event.3, personRelation: currentRelation!)
-                print(currentRelation!)
             }
             eventTupleList.removeAll()
         }
