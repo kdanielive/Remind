@@ -140,7 +140,6 @@ class MainTableViewController: UITableViewController {
                 nameLabel.frame = CGRect(x: padding, y: padding, width: 0, height: 0)
                 nameLabel.text = tupl.0
                 nameLabel.textColor = UIColor.white
-                nameLabel.font = UIFont.systemFont(ofSize: 20)
                 nameLabel.font = UIFont(name: "Noteworthy-Bold", size: 20)
                 nameLabel.sizeToFit()
                 cell.addSubview(nameLabel)
@@ -172,7 +171,7 @@ class MainTableViewController: UITableViewController {
             let numberLabel = UILabel()
             numberLabel.frame = CGRect(x: 70, y: 0, width: cell.frame.width-120, height: cell.frame.height)
             numberLabel.textAlignment = .left
-            numberLabel.font = UIFont.systemFont(ofSize: 18)
+            numberLabel.font = UIFont(name: "Noteworthy-Bold", size: 16)
             numberLabel.textColor = UIColor.white
             numberLabel.adjustsFontSizeToFitWidth = true
             let tuplLst = findTupl(section: indexPath.section, row: indexPath.row)
@@ -183,13 +182,15 @@ class MainTableViewController: UITableViewController {
                     if(idx==0) {
                         numberLabel.text = tupl.0
                     } else {
-                        numberLabel.text = numberLabel.text! + ", " + tupl.0
+                        numberLabel.text = numberLabel.text! + ",  " + tupl.0
                     }
                     idx += 1
                 }
                 let moreImageView = UIImageView(image: UIImage(named: "icon5"))
                 cell.accessoryView = moreImageView
             }
+            numberLabel.lineBreakMode = .byWordWrapping
+            numberLabel.numberOfLines = 0
             
             cell.addSubview(numberLabel)
         }
