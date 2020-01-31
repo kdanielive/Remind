@@ -134,7 +134,7 @@ class MainTableViewController: UITableViewController {
                 cell.addSubview(noneLabel)
             } else {
                 let tupl = todayList[indexPath.row]
-                let padding = CGFloat(15)
+                let padding = CGFloat(5)
                 
                 let nameLabel = UILabel()
                 nameLabel.frame = CGRect(x: padding, y: padding, width: 0, height: 0)
