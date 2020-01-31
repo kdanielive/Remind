@@ -30,14 +30,7 @@
                             <outlet property="delegate" destination="VuO-5I-b0u" id="zLe-1U-UlK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Remind" id="3UG-jt-kuH">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="UtL-VA-1XV">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <segue destination="NNL-su-bg7" kind="show" id="zjc-w0-QRK"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Remind" id="3UG-jt-kuH"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bRp-U3-hD0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -387,7 +380,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YVp-00-ibQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-872" y="268"/>
+            <point key="canvasLocation" x="300" y="268"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6ls-mL-Ldt">
