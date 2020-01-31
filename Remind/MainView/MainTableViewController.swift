@@ -36,7 +36,7 @@ class MainTableViewController: UITableViewController {
         floaty.sticky = true
         floaty.friendlyTap = true
         floaty.buttonColor = UIColor.white
-        //floaty.buttonImage =
+        floaty.buttonImage = UIImage(named: "icon7")
         self.navigationController?.view.addSubview(floaty)
         
         self.tableView.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
