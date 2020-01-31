@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Floaty
 
 class MainTableViewController: UITableViewController {
     
@@ -27,6 +28,12 @@ class MainTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let floaty = Floaty()
+        floaty.addItem(title: "Hello, World!")
+        floaty.sticky = true
+        self.tableView.addSubview(floaty)
+        self.tableView.bringSubviewToFront(floaty)
 
         self.tableView.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
         // Uncomment the following line to preserve selection between presentations
