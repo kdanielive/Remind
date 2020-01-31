@@ -164,13 +164,25 @@ class MainTableViewController: UITableViewController {
             cell.addSubview(monthLabel)
             
             let numberLabel = UILabel()
-            numberLabel.frame = CGRect(x: 70, y: 0, width: cell.frame.width-70, height: cell.frame.height)
+            numberLabel.frame = CGRect(x: 70, y: 0, width: cell.frame.width-120, height: cell.frame.height)
             numberLabel.textAlignment = .left
-            numberLabel.font = UIFont.systemFont(ofSize: 14)
+            numberLabel.font = UIFont.systemFont(ofSize: 18)
             numberLabel.textColor = UIColor.white
+            numberLabel.adjustsFontSizeToFitWidth = true
             let tuplLst = findTupl(section: indexPath.section, row: indexPath.row)
+            numberLabel.text = ""
             if(tuplLst.count != 0) {
-                numberLabel.text = String(tuplLst.count)+" reminders."
+                var idx = 0
+                for tupl in tuplLst {
+                    if(idx==0) {
+                        numberLabel.text = tupl.0
+                    } else {
+                        numberLabel.text = numberLabel.text! + ", " + tupl.0
+                    }
+                    idx += 1
+                }
+                let moreImageView = UIImageView(image: UIImage(named: "icon5"))
+                cell.accessoryView = moreImageView
             }
             
             cell.addSubview(numberLabel)
