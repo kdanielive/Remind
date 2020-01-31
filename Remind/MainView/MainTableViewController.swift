@@ -32,7 +32,9 @@ class MainTableViewController: UITableViewController {
         super.viewDidLoad()
         
         floaty.addItem("Go to Current Date", icon: UIImage(named: "icon6")!)
+        floaty.addItem("Add Reminder", icon: UIImage(named: "icon8"))
         floaty.items[0].addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("goToCurrentDate")))
+        floaty.items[1].addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("addReminder")))
         floaty.sticky = true
         floaty.friendlyTap = true
         floaty.buttonColor = UIColor.white
@@ -76,6 +78,12 @@ class MainTableViewController: UITableViewController {
         floaty.items[0].addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("goToCurrentDate")))
         floaty.items[0].title = "Go to Current Date"
         floaty.close()
+    }
+    
+    @objc func addReminder()  {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "addingviewnav") as! UINavigationController
+        self.present(nextViewController, animated:false, completion:nil)
     }
     
     // MARK: - Table view data source
