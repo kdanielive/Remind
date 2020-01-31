@@ -141,6 +141,7 @@ class MainTableViewController: UITableViewController {
                 nameLabel.text = tupl.0
                 nameLabel.textColor = UIColor.white
                 nameLabel.font = UIFont.systemFont(ofSize: 20)
+                nameLabel.font = UIFont(name: "Noteworthy-Bold", size: 20)
                 nameLabel.sizeToFit()
                 cell.addSubview(nameLabel)
                 
