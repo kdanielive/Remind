@@ -35,6 +35,8 @@ class MainTableViewController: UITableViewController {
         floaty.items[0].addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("goToCurrentDate")))
         floaty.sticky = true
         floaty.friendlyTap = true
+        floaty.buttonColor = UIColor.white
+        //floaty.buttonImage =
         self.navigationController?.view.addSubview(floaty)
         
         self.tableView.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
@@ -67,7 +69,9 @@ class MainTableViewController: UITableViewController {
     
     @objc func goToTodayReminders() {
         DispatchQueue.main.async {
-            self.tableView.setContentOffset(.zero, animated: true)
+            let indexPath:IndexPath = IndexPath(row: 0, section: 0)
+            self.tableView.scrollToRow(at: indexPath, at: .none, animated: true)
+            
         }
         floaty.items[0].addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("goToCurrentDate")))
         floaty.items[0].title = "Go to Current Date"
