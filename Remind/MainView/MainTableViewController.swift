@@ -128,7 +128,7 @@ class MainTableViewController: UITableViewController {
             cell.addSubview(monthLabel)
             
             let numberLabel = UILabel()
-            numberLabel.frame = CGRect(x: 60, y: 0, width: cell.frame.width-60, height: cell.frame.height)
+            numberLabel.frame = CGRect(x: 70, y: 0, width: cell.frame.width-70, height: cell.frame.height)
             numberLabel.textAlignment = .left
             numberLabel.font = UIFont.systemFont(ofSize: 14)
             numberLabel.textColor = UIColor.white
