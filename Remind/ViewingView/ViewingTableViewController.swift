@@ -72,7 +72,11 @@ class ViewingTableViewController: UITableViewController {
         let year = dateFormatter.string(from: date)
         let dateLabel = UILabel()
         dateLabel.frame = CGRect(x: padding*5+eventLabel.frame.width, y: padding+nameLabelHeight, width: 0, height: 0)
-        dateLabel.text = year
+        if(tupl.4) {
+            dateLabel.text = "Annual"
+        } else  {
+            dateLabel.text = year
+        }
         dateLabel.textColor = UIColor.white
         dateLabel.font = UIFont.systemFont(ofSize: 12)
         dateLabel.sizeToFit()

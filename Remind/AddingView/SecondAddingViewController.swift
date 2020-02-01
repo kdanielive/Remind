@@ -43,9 +43,11 @@ class SecondAddingViewController: UIViewController, UITextFieldDelegate {
         if(annualButtonState) {
             annualButton.backgroundColor = UIColor.clear
             annualButtonState = false
+            annual = false
         } else {
             annualButton.backgroundColor = UIColor.black
             annualButtonState = true
+            annual = true
         }
     }
     
