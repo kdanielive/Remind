@@ -25,11 +25,20 @@ class MainTableViewController: UITableViewController {
         11:"Novermber",
         12:"December"
     ]
-    
     let floaty = Floaty()
+    var todaySection = 0
+    var todayRow = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let f = ISO8601DateFormatter()
+        f.formatOptions = [.withFullDate, .withDashSeparatorInDate]
+        f.timeZone = TimeZone.current
+        let month = Int(f.string(from: Date()).substring(from: 5).substring(to: 2))!
+        let day = Int(f.string(from: Date()).substring(from: 8).substring(to: 2))!
+        todaySection = month
+        todayRow = day-1
         
         floaty.addItem("Go to Current Date", icon: UIImage(named: "icon6")!)
         floaty.addItem("Add Reminder", icon: UIImage(named: "icon8"))
@@ -60,14 +69,8 @@ class MainTableViewController: UITableViewController {
     
     @objc func goToCurrentDate() {
         DispatchQueue.main.async {
-            let f = ISO8601DateFormatter()
-            f.formatOptions = [.withFullDate, .withDashSeparatorInDate]
-            f.timeZone = TimeZone.current
-            let month = Int(f.string(from: Date()).substring(from: 5).substring(to: 2))!
-            let day = Int(f.string(from: Date()).substring(from: 8).substring(to: 2))!
-            
-            let indexPath:IndexPath = IndexPath(row: day-1, section: month)
-            self.tableView.scrollToRow(at: indexPath, at: .none, animated: true)
+            let indexPath:IndexPath = IndexPath(row: self.todayRow, section: self.todaySection)
+            self.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
         }
         floaty.items[0].addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("goToTodayReminders")))
         floaty.items[0].title = "Go to Today's Reminders"
@@ -125,7 +128,6 @@ class MainTableViewController: UITableViewController {
         }
         cell.isUserInteractionEnabled = false
         cell.isSelected = false
-        // cell.selectionStyle = .none
 
         if(indexPath.section==0) {
             cell.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
@@ -197,8 +199,12 @@ class MainTableViewController: UITableViewController {
             }
             numberLabel.lineBreakMode = .byWordWrapping
             numberLabel.numberOfLines = 0
-            
+
             cell.addSubview(numberLabel)
+            
+            if(indexPath.section==todaySection && indexPath.row==todayRow) {
+                monthLabel.textColor = UIColor.systemGreen
+            }
         }
         // Configure the cell...
         return cell
