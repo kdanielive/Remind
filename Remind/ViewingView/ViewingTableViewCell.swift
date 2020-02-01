@@ -20,5 +20,13 @@ class ViewingTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        for subview in self.subviews {
+            subview.isHidden = true
+        }
+    }
 
 }
