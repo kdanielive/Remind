@@ -140,6 +140,9 @@ class MainTableViewController: UITableViewController {
                 noneLabel.text = "    None"
                 cell.addSubview(noneLabel)
             } else {
+                cell.isUserInteractionEnabled = true
+                cell.selectionStyle = .none
+                
                 let tupl = todayList[indexPath.row]
                 let padding = CGFloat(5)
                 
@@ -161,8 +164,12 @@ class MainTableViewController: UITableViewController {
                 eventLabel.sizeToFit()
                 cell.addSubview(eventLabel)
                 
-                let moreImageView = UIImageView(image: UIImage(named: "icon9"))
-                cell.accessoryView = moreImageView
+                let accessoryButton = UIButton()
+                accessoryButton.tag = indexPath.row
+                accessoryButton.setImage(UIImage(named: "icon9"), for: .normal)
+                accessoryButton.frame = CGRect(x: cell.frame.width-CGFloat(50), y: CGFloat(15), width: CGFloat(30), height: CGFloat(30))
+                accessoryButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+                cell.addSubview(accessoryButton)
             }
         } else {
             let monthLabel = UILabel()
@@ -208,6 +215,26 @@ class MainTableViewController: UITableViewController {
         }
         // Configure the cell...
         return cell
+    }
+    
+    @objc func buttonTapped(sender: UIButton) {
+        print("hello")
+        
+        deleteTargetTupl = viewTuplList[sender.tag]
+        
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let popVC = storyboard.instantiateViewController(withIdentifier: "PopoverViewController")
+        
+        popVC.modalPresentationStyle = .popover
+        
+        let popOverVC = popVC.popoverPresentationController
+        popOverVC?.delegate = self
+        popOverVC?.permittedArrowDirections = .up
+        popOverVC?.sourceView = sender
+        popOverVC?.sourceRect = CGRect(x: sender.bounds.midX, y: sender.bounds.midY, width: 0, height: 0)
+        popVC.preferredContentSize = CGSize(width: 150, height: 40)
+
+        self.present(popVC, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -348,4 +375,11 @@ class MainTableViewController: UITableViewController {
     }
     */
 
+}
+
+extension MainTableViewController: UIPopoverPresentationControllerDelegate {
+
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
 }
