@@ -59,9 +59,17 @@
                             <outlet property="delegate" destination="dNY-qf-5jD" id="OTk-te-pr8"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="iJs-GS-W35"/>
+                    <navigationItem key="navigationItem" id="iJs-GS-W35">
+                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="yIV-A4-7cc">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="GOE-rN-Iaz" kind="unwind" unwindAction="unwindToMainWithSegue:" id="RP5-Cy-rsJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DFy-VK-Jxl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="GOE-rN-Iaz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2542" y="854"/>
         </scene>

@@ -275,24 +275,17 @@ class MainTableViewController: UITableViewController {
         return tuplLst
     }
     
-    /*
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let section = indexPath.section
         let row = indexPath.row
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+
+        viewTuplList = findTupl(section: section, row: row)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "viewingviewnav") as! UINavigationController
+        self.present(nextViewController, animated:false, completion:nil)
         
-        if(section==1) {
-            if(row==0) {
-                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "addingviewnav") as! UINavigationController
-                self.present(nextViewController, animated:false, completion:nil)
-            } else {
-                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "viewingviewnav") as! UINavigationController
-                self.present(nextViewController, animated:false, completion:nil)
-            }
-        }
     }
-    */
     
     @IBAction func unwindToMain(segue:UIStoryboardSegue) { }
 
