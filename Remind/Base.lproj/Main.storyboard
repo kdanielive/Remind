@@ -73,6 +73,34 @@
             </objects>
             <point key="canvasLocation" x="2542" y="854"/>
         </scene>
+        <!--Pop Over Table View Controller-->
+        <scene sceneID="Vd6-Hh-aM7">
+            <objects>
+                <tableViewController storyboardIdentifier="PopoverViewController" id="zYl-4Z-6Em" customClass="PopOverTableViewController" customModule="Remind" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MIq-dS-f3v">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="popovercell" id="Cui-ly-FHf" customClass="PopOverTableViewCell" customModule="Remind" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cui-ly-FHf" id="Y4i-as-foF">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zYl-4Z-6Em" id="OQL-gy-Dlb"/>
+                            <outlet property="delegate" destination="zYl-4Z-6Em" id="bVB-Fi-7gb"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ozG-ME-XT9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3264" y="854"/>
+        </scene>
         <!--Adding View Controller-->
         <scene sceneID="PQO-bV-bZt">
             <objects>

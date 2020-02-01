@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 
 class ViewingTableViewController: UITableViewController {
+    
+    let accessoryButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,13 +84,31 @@ class ViewingTableViewController: UITableViewController {
         dateLabel.sizeToFit()
         cell.addSubview(dateLabel)
         
-        let moreImageView = UIImageView(image: UIImage(named: "icon9"))
-        cell.accessoryView = moreImageView
+        accessoryButton.setImage(UIImage(named: "icon9"), for: .normal)
+        accessoryButton.frame = CGRect(x: cell.frame.width-CGFloat(50), y: CGFloat(15), width: CGFloat(30), height: CGFloat(30))
+        accessoryButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        cell.addSubview(accessoryButton)
 
         return cell
     }
     
+    @objc func buttonTapped() {
+        print("yeah")
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let popVC = storyboard.instantiateViewController(withIdentifier: "PopoverViewController")
+        
+        popVC.modalPresentationStyle = .popover
+        
+        let popOverVC = popVC.popoverPresentationController
+        popOverVC?.delegate = self
+        popOverVC?.permittedArrowDirections = .up
+        popOverVC?.sourceView = self.accessoryButton
+        popOverVC?.sourceRect = CGRect(x: self.accessoryButton.bounds.midX, y: self.accessoryButton.bounds.midY, width: 0, height: 0)
+        popVC.preferredContentSize = CGSize(width: 150, height: 40)
 
+        self.present(popVC, animated: true)
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -134,4 +154,12 @@ class ViewingTableViewController: UITableViewController {
     }
     */
 
+}
+
+// This is we need to make it looks as a popup window on iPhone
+extension ViewingTableViewController: UIPopoverPresentationControllerDelegate {
+
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
 }
