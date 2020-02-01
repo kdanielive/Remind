@@ -288,7 +288,7 @@ class MainTableViewController: UITableViewController {
 
         viewTuplList = findTupl(section: section, row: row)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "viewingviewnav") as! UINavigationController
-        self.present(nextViewController, animated:false, completion:nil)
+        self.present(nextViewController, animated:true, completion:nil)
         
     }
     

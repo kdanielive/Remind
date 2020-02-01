@@ -14,7 +14,8 @@ class ViewingTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        self.tableView.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -64,6 +65,18 @@ class ViewingTableViewController: UITableViewController {
         eventLabel.font = UIFont.systemFont(ofSize: 12)
         eventLabel.sizeToFit()
         cell.addSubview(eventLabel)
+        
+        let date = tupl.3
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy"
+        let year = dateFormatter.string(from: date)
+        let dateLabel = UILabel()
+        dateLabel.frame = CGRect(x: padding*5+eventLabel.frame.width, y: padding+nameLabelHeight, width: 0, height: 0)
+        dateLabel.text = year
+        dateLabel.textColor = UIColor.white
+        dateLabel.font = UIFont.systemFont(ofSize: 12)
+        dateLabel.sizeToFit()
+        cell.addSubview(dateLabel)
         
         let moreImageView = UIImageView(image: UIImage(named: "icon9"))
         cell.accessoryView = moreImageView
