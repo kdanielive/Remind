@@ -31,22 +31,46 @@ class ViewingTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return viewTuplList.count
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "viewcell", for: indexPath) as! ViewingTableViewCell
+        cell.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
 
         // Configure the cell...
+        let tupl = viewTuplList[indexPath.row]
+        let padding = CGFloat(5)
+        
+        let nameLabel = UILabel()
+        nameLabel.frame = CGRect(x: padding*3, y: padding, width: 0, height: 0)
+        nameLabel.text = tupl.0
+        nameLabel.textColor = UIColor.white
+        nameLabel.font = UIFont(name: "Noteworthy-Bold", size: 20)
+        nameLabel.sizeToFit()
+        cell.addSubview(nameLabel)
+        
+        let nameLabelHeight = nameLabel.frame.height
+        let nameLabelWidth = nameLabel.frame.width
+        let eventLabel = UILabel()
+        eventLabel.frame = CGRect(x: padding*3, y: padding+nameLabelHeight, width: 0, height: 0)
+        eventLabel.text = tupl.2
+        eventLabel.textColor = UIColor.white
+        eventLabel.font = UIFont.systemFont(ofSize: 12)
+        eventLabel.sizeToFit()
+        cell.addSubview(eventLabel)
+        
+        let moreImageView = UIImageView(image: UIImage(named: "icon9"))
+        cell.accessoryView = moreImageView
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

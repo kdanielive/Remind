@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,6 +24,7 @@
 		AB85A4E023DD685700BED3A4 /* SecondAddingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB85A4DF23DD685700BED3A4 /* SecondAddingViewController.swift */; };
 		ABCE78D323DD734600FF9FA2 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCE78D223DD734600FF9FA2 /* Globals.swift */; };
 		ABCE78D623DD811100FF9FA2 /* ViewingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCE78D523DD811100FF9FA2 /* ViewingTableViewController.swift */; };
+		ABCE78DA23E5153D00FF9FA2 /* ViewingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCE78D923E5153D00FF9FA2 /* ViewingTableViewCell.swift */; };
 		D5C0B6F12AD13011ADDE4489 /* Pods_RemindTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA103518E5169016D05A56B /* Pods_RemindTests.framework */; };
 		FA3F80996DD09BB18B31E652 /* Pods_Remind.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96DCE7940A0D7726567D387A /* Pods_Remind.framework */; };
 /* End PBXBuildFile section */
@@ -75,6 +76,7 @@
 		AB85A4DF23DD685700BED3A4 /* SecondAddingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondAddingViewController.swift; sourceTree = "<group>"; };
 		ABCE78D223DD734600FF9FA2 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		ABCE78D523DD811100FF9FA2 /* ViewingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewingTableViewController.swift; sourceTree = "<group>"; };
+		ABCE78D923E5153D00FF9FA2 /* ViewingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewingTableViewCell.swift; sourceTree = "<group>"; };
 		CF8FE90227F6A7DF1CA05FC1 /* Pods-Remind-RemindUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Remind-RemindUITests.debug.xcconfig"; path = "Target Support Files/Pods-Remind-RemindUITests/Pods-Remind-RemindUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D00928AB0527B64696D4ECF5 /* Pods-Remind-RemindUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Remind-RemindUITests.release.xcconfig"; path = "Target Support Files/Pods-Remind-RemindUITests/Pods-Remind-RemindUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				ABCE78D523DD811100FF9FA2 /* ViewingTableViewController.swift */,
+				ABCE78D923E5153D00FF9FA2 /* ViewingTableViewCell.swift */,
 			);
 			path = ViewingView;
 			sourceTree = "<group>";
@@ -221,7 +224,6 @@
 				415EC7F9BAF233837DF6AC35 /* Pods-RemindTests.debug.xcconfig */,
 				737FD9711D1DEB968251D87C /* Pods-RemindTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -465,6 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB85A4A423DCA92E00BED3A4 /* ViewController.swift in Sources */,
+				ABCE78DA23E5153D00FF9FA2 /* ViewingTableViewCell.swift in Sources */,
 				AB85A4A023DCA92E00BED3A4 /* AppDelegate.swift in Sources */,
 				AB85A4DE23DD56CE00BED3A4 /* AddingViewController.swift in Sources */,
 				AB85A4D923DCB41300BED3A4 /* MainViewHeaderCard.swift in Sources */,

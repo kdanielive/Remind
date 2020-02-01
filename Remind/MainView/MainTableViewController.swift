@@ -119,12 +119,16 @@ class MainTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "maincell", for: indexPath) as! MainTableViewCell
         //cell.backgroundColor = UIColor.darkGray
         if(indexPath.row % 2 == 0) {
-            cell.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
-        } else {
             cell.backgroundColor = UIColor.init(red: 30/255, green: 59/255, blue: 92/255, alpha: 1)
+        } else {
+            cell.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
         }
+        cell.isUserInteractionEnabled = false
+        cell.selectionStyle = .none
 
         if(indexPath.section==0) {
+            cell.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
+            
             if(todayList.count == 0) {
                 let noneLabel = UILabel()
                 noneLabel.frame = CGRect(x: 0, y: CGFloat(10), width: cell.frame.width, height: cell.frame.height)
@@ -137,7 +141,7 @@ class MainTableViewController: UITableViewController {
                 let padding = CGFloat(5)
                 
                 let nameLabel = UILabel()
-                nameLabel.frame = CGRect(x: padding, y: padding, width: 0, height: 0)
+                nameLabel.frame = CGRect(x: padding*3, y: padding, width: 0, height: 0)
                 nameLabel.text = tupl.0
                 nameLabel.textColor = UIColor.white
                 nameLabel.font = UIFont(name: "Noteworthy-Bold", size: 20)
@@ -147,7 +151,7 @@ class MainTableViewController: UITableViewController {
                 let nameLabelHeight = nameLabel.frame.height
                 let nameLabelWidth = nameLabel.frame.width
                 let eventLabel = UILabel()
-                eventLabel.frame = CGRect(x: padding, y: padding+nameLabelHeight, width: 0, height: 0)
+                eventLabel.frame = CGRect(x: padding*3, y: padding+nameLabelHeight, width: 0, height: 0)
                 eventLabel.text = tupl.2
                 eventLabel.textColor = UIColor.white
                 eventLabel.font = UIFont.systemFont(ofSize: 12)
@@ -177,6 +181,7 @@ class MainTableViewController: UITableViewController {
             let tuplLst = findTupl(section: indexPath.section, row: indexPath.row)
             numberLabel.text = ""
             if(tuplLst.count != 0) {
+                cell.isUserInteractionEnabled = true
                 var idx = 0
                 for tupl in tuplLst {
                     if(idx==0) {
