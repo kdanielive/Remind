@@ -124,7 +124,8 @@ class MainTableViewController: UITableViewController {
             cell.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
         }
         cell.isUserInteractionEnabled = false
-        cell.selectionStyle = .none
+        cell.isSelected = false
+        // cell.selectionStyle = .none
 
         if(indexPath.section==0) {
             cell.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
@@ -292,7 +293,9 @@ class MainTableViewController: UITableViewController {
         
     }
     
-    @IBAction func unwindToMain(segue:UIStoryboardSegue) { }
+    @IBAction func unwindToMain(segue:UIStoryboardSegue) {
+        self.tableView.reloadData()
+    }
 
     /*
     // Override to support conditional editing of the table view.
