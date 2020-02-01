@@ -11,18 +11,22 @@ import CoreData
 
 class ViewingTableViewController: UITableViewController {
     
-    let accessoryButton = UIButton()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
+        
+        NotificationCenter.default.addObserver(self, selector: Selector("reload"), name: Notification.Name("reloadLocalDataCompleted"), object: nil)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    @objc func reload() {
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -45,6 +49,7 @@ class ViewingTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "viewcell", for: indexPath) as! ViewingTableViewCell
         cell.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
+        cell.selectionStyle = .none
 
         // Configure the cell...
         let tupl = viewTuplList[indexPath.row]
@@ -84,6 +89,8 @@ class ViewingTableViewController: UITableViewController {
         dateLabel.sizeToFit()
         cell.addSubview(dateLabel)
         
+        let accessoryButton = UIButton()
+        accessoryButton.tag = indexPath.row
         accessoryButton.setImage(UIImage(named: "icon9"), for: .normal)
         accessoryButton.frame = CGRect(x: cell.frame.width-CGFloat(50), y: CGFloat(15), width: CGFloat(30), height: CGFloat(30))
         accessoryButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
@@ -92,8 +99,9 @@ class ViewingTableViewController: UITableViewController {
         return cell
     }
     
-    @objc func buttonTapped() {
-        print("yeah")
+    @objc func buttonTapped(sender: UIButton) {
+        deleteTargetTupl = viewTuplList[sender.tag]
+        
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let popVC = storyboard.instantiateViewController(withIdentifier: "PopoverViewController")
         
@@ -102,8 +110,8 @@ class ViewingTableViewController: UITableViewController {
         let popOverVC = popVC.popoverPresentationController
         popOverVC?.delegate = self
         popOverVC?.permittedArrowDirections = .up
-        popOverVC?.sourceView = self.accessoryButton
-        popOverVC?.sourceRect = CGRect(x: self.accessoryButton.bounds.midX, y: self.accessoryButton.bounds.midY, width: 0, height: 0)
+        popOverVC?.sourceView = sender
+        popOverVC?.sourceRect = CGRect(x: sender.bounds.midX, y: sender.bounds.midY, width: 0, height: 0)
         popVC.preferredContentSize = CGSize(width: 150, height: 40)
 
         self.present(popVC, animated: true)

@@ -23,6 +23,7 @@ var dateTuplList: [(Int,String,Int,String,(String,String,String,Date,Bool))] = [
 
 // Used in Viewing
 var viewTuplList : [(String,String,String,Date,Bool)] = []
+var deleteTargetTupl : (String,String,String,Date,Bool) = ("","","", Date(),true)
 
 // var upcomingList: [(String,String,String,Date,Bool)] = []
 // name, relation, eventName, date, annual
