@@ -66,7 +66,24 @@ class MainTableViewController: UITableViewController {
     }
     
     @objc func pushLetter() {
-        
+        let title = "So You Downloaded This App"
+        let message =
+        """
+        RemCal is an iOS application intended to help you keep track of those who are precious to you. It is easy to forget the very ones that make your life worth living when things get too busy and overwhelming. Sometimes we all need a reminder to remember why you keep doing all this work in the first place.
+
+        As the first version of the app, RemCal 1.0 holds only the most essential features. Pending updates, however, include:
+        - Importing birthdays, anniversaries from social media like Facebook
+        - A list sorted by Relationship key
+        - Color customization, etc
+
+        One thing though, the developer is probably serving in the military by the time this app gets on the Appstore, however, so you will have to wait 18 months before the major updates to start rolling in.
+
+        That said, credits:
+        Secured Letter icon, Pen icon, Plus icon, Calendar icon, Clock icon icon by Icons8
+        """
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Exit", style: .default, handler: nil))
+        self.navigationController?.present(alert, animated: false, completion: nil)
     }
     
     @objc func reload() {
