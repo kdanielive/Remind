@@ -14,7 +14,7 @@ class AddingViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet var relationPickerView: UIPickerView!
     @IBOutlet var nameTextField: UITextField!
     
-    let relationVariety = ["Family", "Close Friend", "Friend", "Acquaintance", "Work"]
+    let relationVariety = ["Family", "Lover", "Close Friend", "Friend", "Work", "Acquaintance"]
     var name = ""
     var relation = ""
     
@@ -28,7 +28,7 @@ class AddingViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         relationPickerView.layer.borderWidth = 0.5
         relationPickerView.layer.borderColor = UIColor.gray.cgColor
         relationPickerView.layer.roundCorners(radius: 5)
-        relationPickerView.selectRow(2, inComponent: 0, animated: false)
+        relationPickerView.selectRow(3, inComponent: 0, animated: false)
         currentRelation = "Friend"
         // Do any additional setup after loading the view.
     }

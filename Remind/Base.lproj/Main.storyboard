@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Remind-->
+        <!--RemCal-->
         <scene sceneID="Jui-Gy-uG9">
             <objects>
                 <tableViewController id="VuO-5I-b0u" customClass="MainTableViewController" customModule="Remind" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,7 +30,7 @@
                             <outlet property="delegate" destination="VuO-5I-b0u" id="zLe-1U-UlK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Remind" id="3UG-jt-kuH"/>
+                    <navigationItem key="navigationItem" title="RemCal" id="3UG-jt-kuH"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bRp-U3-hD0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
