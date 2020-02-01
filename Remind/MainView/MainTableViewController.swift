@@ -42,8 +42,10 @@ class MainTableViewController: UITableViewController {
         
         floaty.addItem("Go to Current Date", icon: UIImage(named: "icon6")!)
         floaty.addItem("Add Reminder", icon: UIImage(named: "icon8"))
+        floaty.addItem("Letter From the Developer", icon: UIImage(named: "icon10"))
         floaty.items[0].addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("goToCurrentDate")))
         floaty.items[1].addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("addReminder")))
+        floaty.items[2].addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("pushLetter")))
         floaty.sticky = true
         floaty.friendlyTap = true
         floaty.buttonColor = UIColor.white
@@ -61,6 +63,10 @@ class MainTableViewController: UITableViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
         
         NotificationCenter.default.addObserver(self, selector: Selector("reload"), name: Notification.Name("reloadLocalDataCompleted"), object: nil)
+    }
+    
+    @objc func pushLetter() {
+        
     }
     
     @objc func reload() {
