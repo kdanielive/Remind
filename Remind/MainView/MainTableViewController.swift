@@ -81,13 +81,15 @@ class MainTableViewController: UITableViewController {
 
         As the first version of the app, RemCal 1.0 holds only the most essential features. Pending updates, however, include:
         - Importing birthdays, anniversaries from social media like Facebook
+        - Setting Reminders through the app
+        - Reserving text messages, linking direct access to popular social media
         - A list sorted by Relationship key
         - Color customization, etc
 
-        One thing though, the developer is probably serving in the military by the time this app gets on the Appstore, however, so you will have to wait 18 months before the major updates to start rolling in.
+        One thing though, the developer is probably serving in the military by the time this app gets on the Appstore, so you will have to wait 18 months before the major updates to start rolling in.
 
         That said, credits:
-        Secured Letter icon, Pen icon, Plus icon, Calendar icon, Clock icon icon by Icons8
+        Secured Letter icon, Pen icon, Plus icon, Calendar icon, Clock icon, Relation icon icon by Icons8
         """
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Exit", style: .default, handler: nil))
