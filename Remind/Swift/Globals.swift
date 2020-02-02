@@ -26,7 +26,17 @@ var viewTuplList : [(String,String,String,Date,Bool)] = []
 var deleteTargetTupl : (String,String,String,Date,Bool) = ("","","", Date(),true)
 
 // Used in Relation
-var relationDict = [String:[(String,String,String,Date,Bool)]]()
+var relationDict : [String:[(String,String,String,Date,Bool)]] = [
+    "Family":[],
+    "Lover":[],
+    "Partner in Life":[],
+    "Close Friend":[],
+    "Friend":[],
+    "Work":[],
+    "School":[],
+    "Acquaintance":[]
+]
+// "Family", "Lover", "Partner in Life", "Close Friend", "Friend", "Work", "School", "Acquaintance"
 
 // var upcomingList: [(String,String,String,Date,Bool)] = []
 // name, relation, eventName, date, annual
