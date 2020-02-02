@@ -92,12 +92,17 @@ class RelationTableViewController: UITableViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy"
         let year = dateFormatter.string(from: date)
+        dateFormatter.dateFormat = "LLLL"
+        let month = dateFormatter.string(from: date)
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.day], from: date)
+        let day = components.day!
         let dateLabel = UILabel()
         dateLabel.frame = CGRect(x: padding*5+eventLabel.frame.width, y: padding+nameLabelHeight, width: 0, height: 0)
         if(tupl.4) {
             dateLabel.text = "Annual"
         } else  {
-            dateLabel.text = year
+            dateLabel.text = "\(year) \(month) \(day)"
         }
         dateLabel.textColor = UIColor.white
         dateLabel.font = UIFont.systemFont(ofSize: 12)
@@ -152,14 +157,23 @@ class RelationTableViewController: UITableViewController {
         header.titleLabel.textColor = UIColor.white
         
         let line = UIView()
-        line.frame = CGRect(x: CGFloat(10), y: 0, width: self.tableView.frame.width-CGFloat(20), height: CGFloat(1))
+        line.frame = CGRect(x: 0, y: CGFloat(39), width: self.tableView.frame.width-CGFloat(20), height: CGFloat(1))
         line.backgroundColor = UIColor.white
         header.addSubview(line)
         
-        header.titleLabel.text = relationKeys[section]
+        let monthLabel = UILabel()
+        monthLabel.frame = CGRect(x: 5, y: 5, width: 200, height: 20)
+        monthLabel.font = UIFont.systemFont(ofSize: 20)
+        monthLabel.text = relationKeys[section]
+        monthLabel.textColor = UIColor.white
         
+        header.addSubview(monthLabel)
         return header
 
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
     }
 
     /*
