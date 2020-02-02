@@ -5,6 +5,7 @@
 //  Created by Daniel Kim on 2/2/20.
 //  Copyright © 2020 Daniel Kim. All rights reserved.
 //
+// "Family", "Lover", "Partner in Life", "Close Friend", "Friend", "Work", "School", "Acquaintance"
 
 import UIKit
 
@@ -24,12 +25,28 @@ class RelationTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 8
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        if(section==0) {
+            return relationDict["Family"]!.count
+        } else if (section==1) {
+            return relationDict["Lover"]!.count
+        } else if (section==2) {
+            return relationDict["Partner in Life"]!.count
+        } else if (section==3) {
+            return relationDict["Close Friend"]!.count
+        } else if (section==4) {
+            return relationDict["Friend"]!.count
+        } else if (section==5) {
+            return relationDict["Work"]!.count
+        } else if (section==6) {
+            return relationDict["School"]!.count
+        } else {
+            return relationDict["Acquaintance"]!.count
+        }
     }
 
     /*
