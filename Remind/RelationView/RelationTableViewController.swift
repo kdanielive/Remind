@@ -114,12 +114,9 @@ class RelationTableViewController: UITableViewController {
          */
 
         return cell
-
-        // Configure the cell...
-
-        return cell
     }
     
+    /*
     @objc func buttonTapped(sender: UIButton) {
         deleteTargetTupl = viewTuplList[sender.tag]
         
@@ -137,13 +134,32 @@ class RelationTableViewController: UITableViewController {
 
         self.present(popVC, animated: true)
     }
+    */
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
     
+    /*
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return relationKeys[section]
+    }
+    */
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = MainViewHeaderCard()
+        header.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
+        header.titleLabel.textColor = UIColor.white
+        
+        let line = UIView()
+        line.frame = CGRect(x: CGFloat(10), y: 0, width: self.tableView.frame.width-CGFloat(20), height: CGFloat(1))
+        line.backgroundColor = UIColor.white
+        header.addSubview(line)
+        
+        header.titleLabel.text = relationKeys[section]
+        
+        return header
+
     }
 
     /*
