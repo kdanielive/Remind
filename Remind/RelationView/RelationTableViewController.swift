@@ -10,6 +10,9 @@
 import UIKit
 
 class RelationTableViewController: UITableViewController {
+    
+    let relationKeys = ["Family", "Lover", "Partner in Life", "Close Friend", "Friend", "Work", "School", "Acquaintance"]
+    var currentRelation = "Family"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +66,8 @@ class RelationTableViewController: UITableViewController {
         cell.selectionStyle = .none
 
         // Configure the cell...
-        let tupl = viewTuplList[indexPath.row]
+        let relationKey = relationKeys[indexPath.section]
+        let tupl = relationDict[relationKey]![indexPath.row]
         let padding = CGFloat(5)
         
         let nameLabel = UILabel()
@@ -100,12 +104,14 @@ class RelationTableViewController: UITableViewController {
         dateLabel.sizeToFit()
         cell.addSubview(dateLabel)
         
+        /*
         let accessoryButton = UIButton()
         accessoryButton.tag = indexPath.row
         accessoryButton.setImage(UIImage(named: "icon9"), for: .normal)
         accessoryButton.frame = CGRect(x: cell.frame.width-CGFloat(50), y: CGFloat(15), width: CGFloat(30), height: CGFloat(30))
         accessoryButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         cell.addSubview(accessoryButton)
+         */
 
         return cell
 
@@ -134,6 +140,10 @@ class RelationTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return relationKeys[section]
     }
 
     /*

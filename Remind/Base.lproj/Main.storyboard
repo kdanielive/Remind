@@ -489,7 +489,7 @@
         <!--Navigation Controller-->
         <scene sceneID="U9H-fQ-kd1">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mLQ-Kv-Gtr" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="relationnav" automaticallyAdjustsScrollViewInsets="NO" id="mLQ-Kv-Gtr" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QSF-F9-Bc2">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
