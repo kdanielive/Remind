@@ -41,11 +41,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 if(dataDict.keys.contains(data.value(forKey: "personName") as! String)) {
                     dataDict[data.value(forKey: "personName") as! String]?.append(tupl)
-                    relationDict[data.value(forKey: "personRelation") as! String]?.append(tupl)
                 } else {
                     dataDict[data.value(forKey: "personName") as! String] = [tupl]
-                    relationDict[data.value(forKey: "personRelation") as! String] = [tupl]
                 }
+                
+                relationDict[data.value(forKey: "personRelation") as! String]?.append(tupl)
+
                 
                 totalList.append(tupl)
             }

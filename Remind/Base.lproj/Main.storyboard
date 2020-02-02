@@ -10,13 +10,13 @@
         <!--RemCal-->
         <scene sceneID="Jui-Gy-uG9">
             <objects>
-                <tableViewController id="VuO-5I-b0u" customClass="MainTableViewController" customModule="Remind" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="VuO-5I-b0u" customClass="MainTableViewController" customModule="RemCal" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="a94-5W-Uf5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="maincell" id="D4L-9N-HSS" customClass="MainTableViewCell" customModule="Remind" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="maincell" id="D4L-9N-HSS" customClass="MainTableViewCell" customModule="RemCal" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="D4L-9N-HSS" id="F2s-rW-wm0">
@@ -39,13 +39,13 @@
         <!--Viewing Table View Controller-->
         <scene sceneID="ERx-bo-FFv">
             <objects>
-                <tableViewController id="dNY-qf-5jD" customClass="ViewingTableViewController" customModule="Remind" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="dNY-qf-5jD" customClass="ViewingTableViewController" customModule="RemCal" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0JB-zj-gBg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="viewcell" id="4sM-YG-CzC" customClass="ViewingTableViewCell" customModule="Remind" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="viewcell" id="4sM-YG-CzC" customClass="ViewingTableViewCell" customModule="RemCal" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4sM-YG-CzC" id="wuM-HV-rlX">
@@ -76,13 +76,13 @@
         <!--Pop Over Table View Controller-->
         <scene sceneID="Vd6-Hh-aM7">
             <objects>
-                <tableViewController storyboardIdentifier="PopoverViewController" id="zYl-4Z-6Em" customClass="PopOverTableViewController" customModule="Remind" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PopoverViewController" id="zYl-4Z-6Em" customClass="PopOverTableViewController" customModule="RemCal" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MIq-dS-f3v">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="popovercell" id="Cui-ly-FHf" customClass="PopOverTableViewCell" customModule="Remind" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="popovercell" id="Cui-ly-FHf" customClass="PopOverTableViewCell" customModule="RemCal" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cui-ly-FHf" id="Y4i-as-foF">
@@ -104,7 +104,7 @@
         <!--Adding View Controller-->
         <scene sceneID="PQO-bV-bZt">
             <objects>
-                <viewController storyboardIdentifier="addingview" id="cEJ-Tv-gdS" customClass="AddingViewController" customModule="Remind" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addingview" id="cEJ-Tv-gdS" customClass="AddingViewController" customModule="RemCal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RwC-hU-auS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -226,7 +226,7 @@
         <!--Second Adding View Controller-->
         <scene sceneID="Qrs-Vj-Nwb">
             <objects>
-                <viewController storyboardIdentifier="secondaddingview" id="zgu-g2-2Eg" customClass="SecondAddingViewController" customModule="Remind" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="secondaddingview" id="zgu-g2-2Eg" customClass="SecondAddingViewController" customModule="RemCal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sto-kn-zrQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -480,9 +480,17 @@
                             <outlet property="delegate" destination="Coa-3L-n04" id="MhB-Eg-v7j"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="d9K-pP-iUI"/>
+                    <navigationItem key="navigationItem" id="d9K-pP-iUI">
+                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="I2Y-gf-C57">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="6XM-Jd-b5K" kind="unwind" unwindAction="unwindToMainWithSegue:" id="Sze-0z-Ggp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kT8-cb-s4P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="6XM-Jd-b5K" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2541" y="1538"/>
         </scene>

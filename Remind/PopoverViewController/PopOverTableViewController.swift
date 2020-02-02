@@ -90,6 +90,16 @@ class PopOverTableViewController: UITableViewController {
         dataDict.removeAll()
         todayList.removeAll()
         dateTuplList.removeAll()
+        relationDict = [
+            "Family":[],
+            "Lover":[],
+            "Partner in Life":[],
+            "Close Friend":[],
+            "Friend":[],
+            "Work":[],
+            "School":[],
+            "Acquaintance":[]
+        ]
         
         do {
             let result = try managedContext.fetch(fetchRequest)
@@ -98,11 +108,10 @@ class PopOverTableViewController: UITableViewController {
                 
                 if(dataDict.keys.contains(data.value(forKey: "personName") as! String)) {
                     dataDict[data.value(forKey: "personName") as! String]?.append(tupl)
-                    relationDict[data.value(forKey: "personRelation") as! String]?.append(tupl)
                 } else {
                     dataDict[data.value(forKey: "personName") as! String] = [tupl]
-                    relationDict[data.value(forKey: "personRelation") as! String] = [tupl]
                 }
+                relationDict[data.value(forKey: "personRelation") as! String]?.append(tupl)
                 
                 totalList.append(tupl)
             }

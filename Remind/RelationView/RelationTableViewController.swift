@@ -8,6 +8,7 @@
 // "Family", "Lover", "Partner in Life", "Close Friend", "Friend", "Work", "School", "Acquaintance"
 
 import UIKit
+import CoreData
 
 class RelationTableViewController: UITableViewController {
     
