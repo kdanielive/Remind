@@ -56,7 +56,7 @@
 		5D7AA1571C6C046B9C817B89 /* Pods_Remind_RemindUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Remind_RemindUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		737FD9711D1DEB968251D87C /* Pods-RemindTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RemindTests.release.xcconfig"; path = "Target Support Files/Pods-RemindTests/Pods-RemindTests.release.xcconfig"; sourceTree = "<group>"; };
 		96DCE7940A0D7726567D387A /* Pods_Remind.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Remind.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB85A49C23DCA92E00BED3A4 /* Remind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Remind.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB85A49C23DCA92E00BED3A4 /* RemCal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemCal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB85A49F23DCA92E00BED3A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB85A4A123DCA92E00BED3A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AB85A4A323DCA92E00BED3A4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 		AB85A49D23DCA92E00BED3A4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AB85A49C23DCA92E00BED3A4 /* Remind.app */,
+				AB85A49C23DCA92E00BED3A4 /* RemCal.app */,
 				AB85A4B523DCA93100BED3A4 /* RemindTests.xctest */,
 				AB85A4C023DCA93100BED3A4 /* RemindUITests.xctest */,
 			);
@@ -260,7 +260,7 @@
 			);
 			name = Remind;
 			productName = Remind;
-			productReference = AB85A49C23DCA92E00BED3A4 /* Remind.app */;
+			productReference = AB85A49C23DCA92E00BED3A4 /* RemCal.app */;
 			productType = "com.apple.product-type.application";
 		};
 		AB85A4B423DCA93100BED3A4 /* RemindTests */ = {
@@ -677,7 +677,7 @@
 				);
 				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.danielapps.remind.Remind;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RemCal;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -698,7 +698,7 @@
 				);
 				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.danielapps.remind.Remind;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RemCal;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
