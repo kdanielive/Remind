@@ -27,6 +27,8 @@
 		ABCE78DA23E5153D00FF9FA2 /* ViewingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCE78D923E5153D00FF9FA2 /* ViewingTableViewCell.swift */; };
 		ABCE78DD23E528E900FF9FA2 /* PopOverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCE78DC23E528E900FF9FA2 /* PopOverTableViewController.swift */; };
 		ABCE78DF23E5291D00FF9FA2 /* PopOverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCE78DE23E5291D00FF9FA2 /* PopOverTableViewCell.swift */; };
+		ABCE78E223E71B1900FF9FA2 /* RelationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCE78E123E71B1900FF9FA2 /* RelationTableViewController.swift */; };
+		ABCE78E423E71B2600FF9FA2 /* RelationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCE78E323E71B2600FF9FA2 /* RelationTableViewCell.swift */; };
 		D5C0B6F12AD13011ADDE4489 /* Pods_RemindTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA103518E5169016D05A56B /* Pods_RemindTests.framework */; };
 		FA3F80996DD09BB18B31E652 /* Pods_Remind.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96DCE7940A0D7726567D387A /* Pods_Remind.framework */; };
 /* End PBXBuildFile section */
@@ -81,6 +83,8 @@
 		ABCE78D923E5153D00FF9FA2 /* ViewingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewingTableViewCell.swift; sourceTree = "<group>"; };
 		ABCE78DC23E528E900FF9FA2 /* PopOverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverTableViewController.swift; sourceTree = "<group>"; };
 		ABCE78DE23E5291D00FF9FA2 /* PopOverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverTableViewCell.swift; sourceTree = "<group>"; };
+		ABCE78E123E71B1900FF9FA2 /* RelationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationTableViewController.swift; sourceTree = "<group>"; };
+		ABCE78E323E71B2600FF9FA2 /* RelationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationTableViewCell.swift; sourceTree = "<group>"; };
 		CF8FE90227F6A7DF1CA05FC1 /* Pods-Remind-RemindUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Remind-RemindUITests.debug.xcconfig"; path = "Target Support Files/Pods-Remind-RemindUITests/Pods-Remind-RemindUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D00928AB0527B64696D4ECF5 /* Pods-Remind-RemindUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Remind-RemindUITests.release.xcconfig"; path = "Target Support Files/Pods-Remind-RemindUITests/Pods-Remind-RemindUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,6 +152,7 @@
 		AB85A49E23DCA92E00BED3A4 /* Remind */ = {
 			isa = PBXGroup;
 			children = (
+				ABCE78E023E71AFF00FF9FA2 /* RelationView */,
 				AB85A4D723DCB40300BED3A4 /* Swift */,
 				ABCE78DB23E528CF00FF9FA2 /* PopoverViewController */,
 				ABCE78D423DD80B300FF9FA2 /* ViewingView */,
@@ -226,6 +231,15 @@
 				ABCE78DE23E5291D00FF9FA2 /* PopOverTableViewCell.swift */,
 			);
 			path = PopoverViewController;
+			sourceTree = "<group>";
+		};
+		ABCE78E023E71AFF00FF9FA2 /* RelationView */ = {
+			isa = PBXGroup;
+			children = (
+				ABCE78E123E71B1900FF9FA2 /* RelationTableViewController.swift */,
+				ABCE78E323E71B2600FF9FA2 /* RelationTableViewCell.swift */,
+			);
+			path = RelationView;
 			sourceTree = "<group>";
 		};
 		E54C9E4C942BFF18BAAD147B /* Pods */ = {
@@ -485,7 +499,9 @@
 				AB85A4A023DCA92E00BED3A4 /* AppDelegate.swift in Sources */,
 				AB85A4DE23DD56CE00BED3A4 /* AddingViewController.swift in Sources */,
 				AB85A4D923DCB41300BED3A4 /* MainViewHeaderCard.swift in Sources */,
+				ABCE78E223E71B1900FF9FA2 /* RelationTableViewController.swift in Sources */,
 				AB85A4E023DD685700BED3A4 /* SecondAddingViewController.swift in Sources */,
+				ABCE78E423E71B2600FF9FA2 /* RelationTableViewCell.swift in Sources */,
 				ABCE78D323DD734600FF9FA2 /* Globals.swift in Sources */,
 				ABCE78D623DD811100FF9FA2 /* ViewingTableViewController.swift in Sources */,
 				AB85A4AA23DCA92E00BED3A4 /* Remind.xcdatamodeld in Sources */,

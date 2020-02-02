@@ -457,5 +457,53 @@
             </objects>
             <point key="canvasLocation" x="1805.7971014492755" y="853.79464285714278"/>
         </scene>
+        <!--Relation Table View Controller-->
+        <scene sceneID="PcI-fC-iuB">
+            <objects>
+                <tableViewController id="Coa-3L-n04" customClass="RelationTableViewController" customModule="RemCal" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="SuX-nr-acL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="d9E-La-bq2" customClass="RelationTableViewCell" customModule="RemCal">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d9E-La-bq2" id="jLf-Q0-vbz">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Coa-3L-n04" id="mEt-BT-HBU"/>
+                            <outlet property="delegate" destination="Coa-3L-n04" id="MhB-Eg-v7j"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="d9K-pP-iUI"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kT8-cb-s4P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2541" y="1538"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="U9H-fQ-kd1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mLQ-Kv-Gtr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QSF-F9-Bc2">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.19215686269999999" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Coa-3L-n04" kind="relationship" relationship="rootViewController" id="MHx-TT-tDs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FpY-cb-Xwo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1806" y="1538"/>
+        </scene>
     </scenes>
 </document>
