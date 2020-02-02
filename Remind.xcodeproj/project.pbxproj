@@ -152,8 +152,8 @@
 		AB85A49E23DCA92E00BED3A4 /* Remind */ = {
 			isa = PBXGroup;
 			children = (
-				ABCE78E023E71AFF00FF9FA2 /* RelationView */,
 				AB85A4D723DCB40300BED3A4 /* Swift */,
+				ABCE78E023E71AFF00FF9FA2 /* RelationView */,
 				ABCE78DB23E528CF00FF9FA2 /* PopoverViewController */,
 				ABCE78D423DD80B300FF9FA2 /* ViewingView */,
 				AB85A4DC23DD56B700BED3A4 /* AddingView */,
