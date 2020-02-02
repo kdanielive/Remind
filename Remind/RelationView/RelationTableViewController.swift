@@ -13,12 +13,19 @@ class RelationTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
 
+        NotificationCenter.default.addObserver(self, selector: Selector("reload"), name: Notification.Name("reloadLocalDataCompleted"), object: nil)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    @objc func reload() {
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -52,12 +59,82 @@ class RelationTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "relationcell", for: indexPath) as! RelationTableViewCell
+        cell.backgroundColor = UIColor.init(red: 0/255, green: 49/255, blue: 82/255, alpha: 1)
+        cell.selectionStyle = .none
+
+        // Configure the cell...
+        let tupl = viewTuplList[indexPath.row]
+        let padding = CGFloat(5)
+        
+        let nameLabel = UILabel()
+        nameLabel.frame = CGRect(x: padding*3, y: padding, width: 0, height: 0)
+        nameLabel.text = tupl.0
+        nameLabel.textColor = UIColor.white
+        nameLabel.font = UIFont(name: "Noteworthy-Bold", size: 20)
+        nameLabel.sizeToFit()
+        cell.addSubview(nameLabel)
+        
+        let nameLabelHeight = nameLabel.frame.height
+        let nameLabelWidth = nameLabel.frame.width
+        let eventLabel = UILabel()
+        eventLabel.frame = CGRect(x: padding*3, y: padding+nameLabelHeight, width: 0, height: 0)
+        eventLabel.text = tupl.2
+        eventLabel.textColor = UIColor.white
+        eventLabel.font = UIFont.systemFont(ofSize: 12)
+        eventLabel.sizeToFit()
+        cell.addSubview(eventLabel)
+        
+        let date = tupl.3
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy"
+        let year = dateFormatter.string(from: date)
+        let dateLabel = UILabel()
+        dateLabel.frame = CGRect(x: padding*5+eventLabel.frame.width, y: padding+nameLabelHeight, width: 0, height: 0)
+        if(tupl.4) {
+            dateLabel.text = "Annual"
+        } else  {
+            dateLabel.text = year
+        }
+        dateLabel.textColor = UIColor.white
+        dateLabel.font = UIFont.systemFont(ofSize: 12)
+        dateLabel.sizeToFit()
+        cell.addSubview(dateLabel)
+        
+        let accessoryButton = UIButton()
+        accessoryButton.tag = indexPath.row
+        accessoryButton.setImage(UIImage(named: "icon9"), for: .normal)
+        accessoryButton.frame = CGRect(x: cell.frame.width-CGFloat(50), y: CGFloat(15), width: CGFloat(30), height: CGFloat(30))
+        accessoryButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        cell.addSubview(accessoryButton)
+
+        return cell
 
         // Configure the cell...
 
         return cell
     }
     
+    @objc func buttonTapped(sender: UIButton) {
+        deleteTargetTupl = viewTuplList[sender.tag]
+        
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let popVC = storyboard.instantiateViewController(withIdentifier: "PopoverViewController")
+        
+        popVC.modalPresentationStyle = .popover
+        
+        let popOverVC = popVC.popoverPresentationController
+        popOverVC?.delegate = self
+        popOverVC?.permittedArrowDirections = .up
+        popOverVC?.sourceView = sender
+        popOverVC?.sourceRect = CGRect(x: sender.bounds.midX, y: sender.bounds.midY, width: 0, height: 0)
+        popVC.preferredContentSize = CGSize(width: 150, height: 40)
+
+        self.present(popVC, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -104,4 +181,11 @@ class RelationTableViewController: UITableViewController {
     }
     */
 
+}
+
+extension RelationTableViewController: UIPopoverPresentationControllerDelegate {
+
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
 }
