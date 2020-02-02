@@ -32,8 +32,6 @@ class MainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(relationDict)
-        
         let f = ISO8601DateFormatter()
         f.formatOptions = [.withFullDate, .withDashSeparatorInDate]
         f.timeZone = TimeZone.current
@@ -44,7 +42,7 @@ class MainTableViewController: UITableViewController {
         
         floaty.addItem("Go to Current Date", icon: UIImage(named: "icon6")!)
         floaty.addItem("Add Reminder", icon: UIImage(named: "icon8"))
-        floaty.addItem("View Through Relation", icon:UIImage(named: "icon10"))
+        floaty.addItem("View Through Relation", icon:UIImage(named: "icon11"))
         floaty.addItem("Letter From the Developer", icon: UIImage(named: "icon10"))
         floaty.items[0].addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("goToCurrentDate")))
         floaty.items[1].addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("addReminder")))
